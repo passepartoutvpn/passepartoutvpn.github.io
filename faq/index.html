@@ -57,31 +57,20 @@
     <p>A non-official, user-friendly OpenVPN® client for iOS. Soon for macOS.</p>
 </header>
 
-        <aside>
-    <p class="snapshots">
-        <a href="/s/snap-home.png"><img src="/s/snap-home.png.th.png?1539119055" alt="Home screen" /></a>
-        <a href="/s/snap-profile.png"><img src="/s/snap-profile.png.th.png?1539119055" alt="Profile page" /></a>
-        <a href="/s/snap-trusted.png"><img src="/s/snap-trusted.png.th.png?1539119055" alt="Trusted networks" /></a>
-        <a href="/s/snap-parameters.png"><img src="/s/snap-parameters.png.th.png?1539119055" alt="Connection parameters" /></a>
-    </p>
-    <ul>
-        <li>No background activities.</li>
-        <li>Wise on battery.</li>
-        <li>Trusted networks.</li>
-        <li>Presets for major providers.</li>
-        <li>No <a href="/faq/">compression vulnerability</a>.</li>
-    </ul>
-</aside>
-<main>
-    <h2>Beta testing</h2>
-    <p>
-        Get early versions of the iOS app via <a href="https://testflight.apple.com/join/XHzgXj6m" title="Passepartout on TestFlight">TestFlight</a>.<br />
-        Source code is also available on <a href="https://github.com/passepartoutvpn/passepartout-ios" title="Source code for Passepartout">GitHub</a> under the <a href="https://choosealicense.com/licenses/gpl-3.0/" title="GPLv3">GPLv3</a>.
-    </p>
-    <h2>FAQs</h2>
-    <p>Before anything, have a look at the <a href="/faq/">Frequently Asked Questions</a>.</p>
-    <h2>Support</h2>
-    <p>Subscribe to <a href="https://www.reddit.com/r/passepartout">/r/passepartout</a> to report issues, suggestions or just engage conversations about the app.</p>
+        <main>
+    <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+<h3 id="why-is-compression-not-supported">Why is compression not supported?</h3>
+
+<p>Some users may have noticed that Passepartout is not compatible with any compression algorithm supported by OpenVPN. This is intentional and comes from a logical reasoning. Besides being a relevant overhead against marginal gains -most protocols in the application layer (e.g. HTTP) already use compression nowadays-, compression is vulnerable to an attack that may be able to reveal the secret session keys.</p>
+
+<p>The attack is called VORACLE and is <a href="https://community.openvpn.net/openvpn/wiki/VORACLE">extensively explained</a> by the authors of OpenVPN themselves. Most major providers have taken action and fixed the issue, but many are still refraining to disable compression for no acceptable reason. In case this happens, you are warmly encouraged to report the issue immediately and possibly link to either the official resource you find above, as it comes directly from the software makers, or this page.</p>
+
+<p>BEWARE: it’s not about making the app work, this is about <em>your safety</em>. Do prompt your provider to disable compression ASAP. Most of the time it’s as easy as tweaking a single configuration line on their backends.</p>
+
+<p>Keeping it broken is absolutely irresponsible.</p>
+
+
 </main>
 
         <footer>
