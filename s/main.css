@@ -26,6 +26,10 @@ a:hover {
     width: 32em;
 }
 
+p, ul {
+    line-height: 1.5em;
+}
+
 footer {
     color: lightgray;
     margin-top: 3em;
@@ -49,11 +53,7 @@ footer .notice {
     font-size: 0.7em;
 }
 
-p, ul {
-    line-height: 1.5em;
-}
-
-ul {
+footer ul {
     padding: 0em;
     list-style-type: none;
 }
