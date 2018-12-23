@@ -4,7 +4,6 @@ body {
     font-family: "Helvetica", sans-serif;
     font-size: 12pt;
     color: white;
-    text-align: center;
 }
 
 a {
@@ -22,19 +21,20 @@ a:hover {
     margin: -2em 0em;
 }
 
-main {
+#container {
     margin: 2em auto 3em auto;
     width: 32em;
 }
 
 footer {
     color: lightgray;
+    margin-top: 3em;
     margin-bottom: 2em;
 }
 
 footer li {
     display: inline-block;
-    margin: 0em 0.3em;
+    margin-right: 0.3em;
 }
 
 footer .contacts li {
