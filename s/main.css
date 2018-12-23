@@ -16,9 +16,9 @@ a:hover {
 }
 
 #logo {
-    width: 400px;
+    width: 150px;
     height: 400px;
-    margin: -2em 0em -2em -120px;
+    margin: -2em 0em;
 }
 
 #container {
