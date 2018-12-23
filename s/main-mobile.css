@@ -3,7 +3,7 @@
     width: 100%;
 }
 
-.snapshots {
-    width: 210px;
-    margin: 0px auto;
+.snapshots img {
+    width: 22%;
+    height: 22%;
 }
