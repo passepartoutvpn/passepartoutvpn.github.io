@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1551819868" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1553276238" />
     <meta name="twitter:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
 
     <!-- Facebook -->
@@ -31,23 +31,23 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1551819868" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1553276238" />
 
     <!-- Google+ -->
 
     <meta itemprop="name" content="Passepartout" />
     <meta itemprop="description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1551819868" />
+    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1553276238" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="https://plus.google.com/+keeshux" />
 
-    <link rel="stylesheet" href="/s/main.css?1551819868" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1551819868" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1553276238" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1553276238" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1551819868" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1551819868" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1553276238" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1553276238" />
 </head>
 
     <body>
@@ -74,6 +74,10 @@
 <p>You should contact with your provider to double check if there is interest in being added to Passepartout. Beware that some may be concerned instead. Ultimately, you can submit your provider request for a viability review to <a href="mailto:providers@passepartoutvpn.app">providers@passepartoutvpn.app</a>.</p>
 
 <h3 id="why-is-compression-not-supported">Why is compression not supported?</h3>
+
+<p><strong>UPDATE</strong>: due to user demands and broader compatibility, today Passepartout <em>does</em> support compression, but LZO only. Both <code class="highlighter-rouge">--comp-lzo [yes]</code> and <code class="highlighter-rouge">--compress lzo</code> are now legal options. Other algorithms (e.g. LZ4) are not supported and never will. All in all, the use of compression is still discouraged.</p>
+
+<p>~</p>
 
 <p>Some users may have noticed that Passepartout is not compatible with any compression algorithm supported by OpenVPN. This is intentional and comes from a logical reasoning. Besides being a relevant overhead against marginal gains -most protocols in the application layer (e.g. HTTP) already use compression nowadays-, compression is vulnerable to an attack that may be able to reveal the secret session keys.</p>
 

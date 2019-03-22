@@ -30,6 +30,19 @@ p, ul {
     line-height: 1.5em;
 }
 
+pre, code {
+    background-color: #ddd;
+    color: #515d71;
+}
+
+p code {
+    padding: 0.2em;
+}
+
+pre {
+    padding: 0.5em;
+}
+
 footer {
     color: lightgray;
     margin-top: 3em;
