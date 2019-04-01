@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1553899084" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1554107474" />
     <meta name="twitter:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
 
     <!-- Facebook -->
@@ -31,23 +31,23 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1553899084" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1554107474" />
 
     <!-- Google+ -->
 
     <meta itemprop="name" content="Passepartout" />
     <meta itemprop="description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1553899084" />
+    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1554107474" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="https://plus.google.com/+keeshux" />
 
-    <link rel="stylesheet" href="/s/main.css?1553899084" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1553899084" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1554107474" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1554107474" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1553899084" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1553899084" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1554107474" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1554107474" />
 </head>
 
     <body>
@@ -112,6 +112,22 @@ content of my-ca.crt
 </code></pre></div></div>
 
 <p>The same applies to other settings like <code class="highlighter-rouge">cert</code>, <code class="highlighter-rouge">key</code>, <code class="highlighter-rouge">tls-auth</code> and <code class="highlighter-rouge">tls-crypt</code>.</p>
+
+<h3 id="why-dont-siri-shortcuts-execute-in-the-background">Why don’t Siri Shortcuts execute in the background?</h3>
+
+<p>Unfortunately Apple is guilty of not fixing a related bug. I mean, it’s been there for years -since iOS 9 with my first bug report dating back to 2017- without them caring at all. No feedback and not even a proper response. And of course, no progress.</p>
+
+<p>This is one of the several threads remarking the issue:</p>
+
+<p>https://forums.developer.apple.com/thread/96020</p>
+
+<p>Now, due to this bug, App Extensions can’t control VPN using custom protocols -Siri Intents Extension in this case, in order to run shortcuts in the background. Only native VPN protocols work (IKEv2, IPsec etc.).</p>
+
+<p>In short, there’s really <em>nothing</em> I can do about it.</p>
+
+<h3 id="id-like-to-see-a-today-widget-in-the-notification-center">I’d like to see a Today Widget in the Notification Center</h3>
+
+<p>The reason behind not providing a widget is exactly the same as Siri Shortcuts. A widget would still need to open the app, thus making it quite useless.</p>
 
 <h3 id="id-like-to-see-my-ip-address-in-the-app">I’d like to see my IP address in the app</h3>
 
