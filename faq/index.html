@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1592846512" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1605600828" />
     <meta name="twitter:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
 
     <!-- Facebook -->
@@ -31,23 +31,23 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1592846512" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1605600828" />
 
     <!-- Google+ -->
 
     <meta itemprop="name" content="Passepartout" />
     <meta itemprop="description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1592846512" />
+    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1605600828" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="https://plus.google.com/+keeshux" />
 
-    <link rel="stylesheet" href="/s/main.css?1592846512" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1592846512" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1605600828" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1605600828" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1592846512" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1592846512" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1605600828" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1605600828" />
 </head>
 
     <body>
@@ -70,6 +70,7 @@
   <li><a href="#i-can-connect-to-the-vpn-but-the-internet-does-not-work">I can connect to the VPN but the Internet does not work</a></li>
   <li><a href="#the-vpn-fails-with-auth-failed-or-immediately-disconnects-with-encryption-failed">The VPN fails with “Auth failed” or immediately disconnects with “Encryption failed”</a></li>
   <li><a href="#my-provider-returns-auth-failed-but-my-credentials-are-correct">My provider returns “Auth failed” but my credentials are correct</a></li>
+  <li><a href="#the-configuration-file-lacks-a-required-option-cipher">The configuration file lacks a required option (cipher)</a></li>
   <li><a href="#the-configuration-file-contains-an-unsupported-option-external-file">The configuration file contains an unsupported option (external file)</a></li>
   <li><a href="#why-dont-siri-shortcuts-execute-in-the-background">Why don’t Siri Shortcuts execute in the background?</a></li>
   <li><a href="#it-seems-that-my-traffic-doesnt-necessarily-go-through-the-vpn">It seems that my traffic doesn’t necessarily go through the VPN</a></li>
@@ -152,7 +153,7 @@
 
 <p>Set encryption explicitly in the server configuration, e.g.:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cipher AES-128-CBC
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cipher AES-128-CBC
 auth SHA1
 </code></pre></div></div>
 
@@ -160,7 +161,7 @@ auth SHA1
 
 <p>If you want to leverage newer AES-GCM encryption, you could just use:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ncp-ciphers AES-256-GCM   # or AES-128-GCM
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ncp-ciphers AES-256-GCM   # or AES-128-GCM
 </code></pre></div></div>
 
 <p>and the client wouldn’t need to change a thing, because the algorithm will be enforced by the server no matter what.</p>
@@ -171,30 +172,34 @@ auth SHA1
 
 <p>Regarding Mullvad in particular, remember to strip spaces from the username.</p>
 
+<h3 id="the-configuration-file-lacks-a-required-option-cipher">The configuration file lacks a required option (cipher)</h3>
+
+<p>When missing, OpenVPN implies a Blowfish cipher, which is severely obsolete and unsupported. Passepartout requires that you set an AES cipher instead. For that to work, you must update your OpenVPN server to use AES by explicitly setting a cipher (e.g. <code class="language-plaintext highlighter-rouge">cipher AES-128-CBC</code>).</p>
+
 <h3 id="the-configuration-file-contains-an-unsupported-option-external-file">The configuration file contains an unsupported option (external file)</h3>
 
-<p>Due to easier interoperability, the app does not support external files in the .ovpn main configuration. That’s because more often than not, it may not make sense referring to relative paths in a mobile device environment. Think of the Mail app for example. The fix is straightforward though, say you have an external <code class="highlighter-rouge">ca</code> file:</p>
+<p>Due to easier interoperability, the app does not support external files in the .ovpn main configuration. That’s because more often than not, it may not make sense referring to relative paths in a mobile device environment. Think of the Mail app for example. The fix is straightforward though, say you have an external <code class="language-plaintext highlighter-rouge">ca</code> file:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ca my-ca.crt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ca my-ca.crt
 </code></pre></div></div>
 
 <p>Just replace it with:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ca&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ca&gt;
 ...
 content of my-ca.crt
 ...
 &lt;/ca&gt;
 </code></pre></div></div>
 
-<p>The same applies to other settings like <code class="highlighter-rouge">cert</code>, <code class="highlighter-rouge">key</code>, <code class="highlighter-rouge">tls-auth</code> and <code class="highlighter-rouge">tls-crypt</code>. In the specific case of <code class="highlighter-rouge">tls-auth</code> with a key direction, like:</p>
+<p>The same applies to other settings like <code class="language-plaintext highlighter-rouge">cert</code>, <code class="language-plaintext highlighter-rouge">key</code>, <code class="language-plaintext highlighter-rouge">tls-auth</code> and <code class="language-plaintext highlighter-rouge">tls-crypt</code>. In the specific case of <code class="language-plaintext highlighter-rouge">tls-auth</code> with a key direction, like:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tls-auth ta.key 1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tls-auth ta.key 1
 </code></pre></div></div>
 
 <p>Replace with:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;tls-auth&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;tls-auth&gt;
 ...
 content of ta.key
 ...
@@ -216,7 +221,7 @@ key-direction 1
 
 <h3 id="it-seems-that-my-traffic-doesnt-necessarily-go-through-the-vpn">It seems that my traffic doesn’t necessarily go through the VPN</h3>
 
-<p>Unless <code class="highlighter-rouge">redirect-gateway</code> is either:</p>
+<p>Unless <code class="language-plaintext highlighter-rouge">redirect-gateway</code> is either:</p>
 
 <ul>
   <li>Explicitly added to the .ovpn configuration</li>
@@ -247,7 +252,7 @@ key-direction 1
 
 <h3 id="my-host-profile-ignores-dns-settings-pushed-by-server">My host profile ignores DNS settings pushed by server</h3>
 
-<p>Passepartout is slightly different from OpenVPN Connect when it comes to DNS. Due to the ability of overriding network settings in general, Passepartout lets the user specify what DNS servers to pick without any ambiguity (“Read .ovpn”, “Pull from server” or “Manual”). On the other hand, OpenVPN Connect merges and uses both the servers defined in the .ovpn file (first) and those pushed as <code class="highlighter-rouge">dhcp-option</code> by the VPN server (last). With this in mind, you should now understand why DNS in some networks may behave differently than the official OpenVPN clients.</p>
+<p>Passepartout is slightly different from OpenVPN Connect when it comes to DNS. Due to the ability of overriding network settings in general, Passepartout lets the user specify what DNS servers to pick without any ambiguity (“Read .ovpn”, “Pull from server” or “Manual”). On the other hand, OpenVPN Connect merges and uses both the servers defined in the .ovpn file (first) and those pushed as <code class="language-plaintext highlighter-rouge">dhcp-option</code> by the VPN server (last). With this in mind, you should now understand why DNS in some networks may behave differently than the official OpenVPN clients.</p>
 
 
 </main>
