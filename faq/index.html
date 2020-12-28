@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1605601083" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1609192414" />
     <meta name="twitter:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
 
     <!-- Facebook -->
@@ -31,23 +31,23 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1605601083" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1609192414" />
 
     <!-- Google+ -->
 
     <meta itemprop="name" content="Passepartout" />
     <meta itemprop="description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1605601083" />
+    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1609192414" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="https://plus.google.com/+keeshux" />
 
-    <link rel="stylesheet" href="/s/main.css?1605601083" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1605601083" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1609192414" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1609192414" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1605601083" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1605601083" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1609192414" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1609192414" />
 </head>
 
     <body>
@@ -141,9 +141,19 @@
 
 <h3 id="i-can-connect-to-the-vpn-but-the-internet-does-not-work">I can connect to the VPN but the Internet does not work</h3>
 
-<p>It can be several reasons, yet most of the time there could be a mismatch in compression framing. E.g. server is using LZO compression framing whereas the client is not, or vice versa. Sometimes the app gracefully shuts down with “Compression unsupported”, sometimes the error can be subtle and packet transmission could just fail silently, resulting in no data exchanged over the wire.</p>
+<h4 id="mtu">MTU</h4>
 
-<p>Therefore, make sure that compression directives are compatible between client and server before looking into routing issues. Also read the next FAQ entry, as it may be another cause of dead data link.</p>
+<p>Historically, Passepartout has used a low MTU setting (1250 bytes) in order to maximize compatibility, at the cost of performance. iOS version 1.13.0 -and any macOS version- supports tunnel MTU customization. With this update, it sounded reasonable to also leverage a standard (higher) MTU (usually 1500).</p>
+
+<p>If such change is making the app struggle in your environment, I encourage you to try lowering the MTU. You can easily do that by setting MTU to “Manual” in “Network settings”. You will then be able to pick something down to 1200 bytes. Decrease incrementally until you restore VPN operation.</p>
+
+<h4 id="compression">Compression</h4>
+
+<p>Most of the time there could be a mismatch in compression framing. E.g. server is using LZO compression framing whereas the client is not, or vice versa. Sometimes the app gracefully shuts down with “Compression unsupported”, sometimes the error can be subtle and packet transmission could just fail silently, resulting in no data exchanged over the wire.</p>
+
+<p>Therefore, make sure that compression directives are compatible between client and server before looking into routing issues. Also read the next FAQ entry, as it may be another cause of a dead data link.</p>
+
+<h4 id="dns">DNS</h4>
 
 <p>Last but not least: make sure that you’re not experiencing a simple DNS issue. Try pinging a remote machine by IP address: if that works, then DNS is the culprit. This usually happens when your server, whatever the reason, doesn’t push public DNS servers to clients. There’s a quick workaround: enter “Network settings” in Passepartout, set “DNS” to “Manual” and add an explicit DNS server address. That should fix it.</p>
 
