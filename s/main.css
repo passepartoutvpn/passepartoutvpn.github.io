@@ -30,6 +30,11 @@ p, ul {
     line-height: 1.5em;
 }
 
+aside ul {
+    padding-left: 0;
+    list-style-position: inside;
+}
+
 pre, code {
     background-color: #ddd;
     color: #515d71;
@@ -80,6 +85,10 @@ footer ul {
     height: 177px;
 }
 
-#app-store-badge {
-    width: 160px;
+#app-store {
+    margin-top: 1.5em;
+}
+
+.app-store-badge {
+    height: 50px;
 }
