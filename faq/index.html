@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1636614345" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1637743134" />
     <meta name="twitter:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
 
     <!-- Facebook -->
@@ -31,23 +31,23 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1636614345" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1637743134" />
 
     <!-- Google+ -->
 
     <meta itemprop="name" content="Passepartout" />
     <meta itemprop="description" content="Passepartout is a non-official, user-friendly OpenVPN® client for iOS and macOS." />
-    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1636614345" />
+    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1637743134" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="https://plus.google.com/+keeshux" />
 
-    <link rel="stylesheet" href="/s/main.css?1636614345" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1636614345" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1637743134" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1637743134" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1636614345" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1636614345" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1637743134" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1637743134" />
 </head>
 
     <body>
@@ -70,6 +70,7 @@
   <li><a href="#i-can-connect-to-the-vpn-but-the-internet-does-not-work">I can connect to the VPN but the Internet does not work</a></li>
   <li><a href="#the-vpn-fails-with-auth-failed-or-immediately-disconnects-with-encryption-failed">The VPN fails with “Auth failed” or immediately disconnects with “Encryption failed”</a></li>
   <li><a href="#my-provider-returns-auth-failed-but-my-credentials-are-correct">My provider returns “Auth failed” but my credentials are correct</a></li>
+  <li><a href="#my-personal-server-returns-tls-failed">My personal server returns “TLS failed”</a></li>
   <li><a href="#the-configuration-file-lacks-a-required-option-cipher">The configuration file lacks a required option (cipher)</a></li>
   <li><a href="#the-configuration-file-contains-an-unsupported-option-external-file">The configuration file contains an unsupported option (external file)</a></li>
   <li><a href="#why-dont-siri-shortcuts-execute-in-the-background">Why don’t Siri Shortcuts execute in the background?</a></li>
@@ -183,6 +184,10 @@ ncp-ciphers AES-128-GCM
 <p>Bear in mind that some providers require specific credentials for their direct OpenVPN servers. That’s why Passepartout, in those cases, has a convenient link in the bottom of the Account screen showing you where to find such credentials on your provider’s website.</p>
 
 <p>Regarding Mullvad in particular, remember to strip spaces from the username.</p>
+
+<h3 id="my-personal-server-returns-tls-failed">My personal server returns “TLS failed”</h3>
+
+<p>At some point, TunnelKit moved from OpenSSL to BoringSSL. The switch may disrupt older ciphersuites, thus resulting in “TLS failed” when verifying peer against the CA. Regardless of the error, you should upgrade your server certificates to a more modern standard (e.g. RSA no less than 2048-bit). Passepartout should also get past the “TLS failed” error once you perform the upgrade.</p>
 
 <h3 id="the-configuration-file-lacks-a-required-option-cipher">The configuration file lacks a required option (cipher)</h3>
 
