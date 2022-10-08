@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1664950762" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1665221220" />
     <meta name="twitter:description" content="Passepartout is a user-friendly VPN client for iOS and macOS." />
 
     <!-- Facebook -->
@@ -31,23 +31,23 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is a user-friendly VPN client for iOS and macOS." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1664950762" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1665221220" />
 
     <!-- Google+ -->
 
     <meta itemprop="name" content="Passepartout" />
     <meta itemprop="description" content="Passepartout is a user-friendly VPN client for iOS and macOS." />
-    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1664950762" />
+    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1665221220" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="https://plus.google.com/+keeshux" />
 
-    <link rel="stylesheet" href="/s/main.css?1664950762" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1664950762" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1665221220" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1665221220" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1664950762" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1664950762" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1665221220" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1665221220" />
 </head>
 
     <body>
@@ -63,6 +63,7 @@
 
 <ul>
   <li><a href="#i-disabled-icloud-and-my-profiles-disappeared">I disabled iCloud and my profiles disappeared</a></li>
+  <li><a href="#siri-does-not-work-with-encrypted-dns">Siri does not work with encrypted DNS</a></li>
   <li><a href="#im-unable-to-add-my-wi-fi-to-trusted-networks">I’m unable to add my Wi-Fi to trusted networks</a></li>
   <li><a href="#i-had-purchased-this-app-before-yet-it-prompts-me-for-purchases">I had purchased this app before yet it prompts me for purchases</a></li>
   <li><a href="#my-provider-is-not-listed">My provider is not listed</a></li>
@@ -84,6 +85,12 @@
 <h3 id="i-disabled-icloud-and-my-profiles-disappeared">I disabled iCloud and my profiles disappeared</h3>
 
 <p>Starting from version 2.0.0, Passepartout relies on iCloud capability for profiles storage. Disabling iCloud toggle in iOS settings may result in a “No profiles” message, because the app would be unable to access the CloudKit store, even if it’s only local. This will be fixed soon by making iCloud support optional, as it may be a privacy concern for some users.</p>
+
+<h3 id="siri-does-not-work-with-encrypted-dns">Siri does not work with encrypted DNS</h3>
+
+<p>If you use encrypted DNS (DoH/DoT), you may encounter the error message “iPhone is not connected to the internet” when trying to use Siri. Unfortunately, this is an Apple bug:</p>
+
+<p>https://developer.apple.com/forums/thread/677812</p>
 
 <h3 id="im-unable-to-add-my-wi-fi-to-trusted-networks">I’m unable to add my Wi-Fi to trusted networks</h3>
 
