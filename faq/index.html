@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1694241879" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1694242100" />
     <meta name="twitter:description" content="Passepartout is a user-friendly VPN client for iOS and macOS." />
 
     <!-- Facebook -->
@@ -31,23 +31,23 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is a user-friendly VPN client for iOS and macOS." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1694241879" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1694242100" />
 
     <!-- Google+ -->
 
     <meta itemprop="name" content="Passepartout" />
     <meta itemprop="description" content="Passepartout is a user-friendly VPN client for iOS and macOS." />
-    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1694241879" />
+    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1694242100" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="https://plus.google.com/+keeshux" />
 
-    <link rel="stylesheet" href="/s/main.css?1694241879" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1694241879" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1694242100" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1694242100" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1694241879" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1694241879" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1694242100" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1694242100" />
 </head>
 
     <body>
@@ -65,8 +65,10 @@
   <li><a href="#i-am-concerned-with-icloud-privacy">I am concerned with iCloud privacy</a></li>
   <li><a href="#i-disabled-icloud-from-settings-and-my-profiles-disappeared">I disabled iCloud from Settings and my profiles disappeared</a></li>
   <li><a href="#siri-does-not-work-with-encrypted-dns">Siri does not work with encrypted DNS</a></li>
+  <li><a href="#why-dont-siri-shortcuts-execute-in-the-background">Why don’t Siri Shortcuts execute in the background?</a></li>
   <li><a href="#im-unable-to-add-my-wi-fi-to-trusted-networks">I’m unable to add my Wi-Fi to trusted networks</a></li>
   <li><a href="#i-had-purchased-this-app-before-yet-it-prompts-me-for-purchases">I had purchased this app before yet it prompts me for purchases</a></li>
+  <li><a href="#i-had-purchased-this-app-before-yet-testflight-builds-are-restricted">I had purchased this app before yet TestFlight builds are restricted</a></li>
   <li><a href="#my-provider-is-not-listed">My provider is not listed</a></li>
   <li><a href="#im-on-wi-fi-but-my-device-shows-im-connected-via-lte">I’m on Wi-Fi but my device shows I’m connected via LTE</a></li>
   <li><a href="#why-is-location-access-required-when-trusting-a-wi-fi-network">Why is location access required when trusting a Wi-Fi network?</a></li>
@@ -76,7 +78,6 @@
   <li><a href="#my-personal-server-returns-tls-failed">My personal server returns “TLS failed”</a></li>
   <li><a href="#the-configuration-file-lacks-a-required-option-cipher">The configuration file lacks a required option (cipher)</a></li>
   <li><a href="#the-configuration-file-contains-an-unsupported-option-external-file">The configuration file contains an unsupported option (external file)</a></li>
-  <li><a href="#why-dont-siri-shortcuts-execute-in-the-background">Why don’t Siri Shortcuts execute in the background?</a></li>
   <li><a href="#it-seems-that-my-traffic-doesnt-necessarily-go-through-the-vpn">It seems that my traffic doesn’t necessarily go through the VPN</a></li>
   <li><a href="#id-like-to-see-a-today-widget-in-the-notification-center">I’d like to see a Today Widget in the Notification Center</a></li>
   <li><a href="#id-like-to-see-my-ip-address-in-the-app">I’d like to see my IP address in the app</a></li>
@@ -94,6 +95,18 @@
 <h3 id="siri-does-not-work-with-encrypted-dns">Siri does not work with encrypted DNS</h3>
 
 <p>If you use encrypted DNS (DoH/DoT), you may encounter the error message “iPhone is not connected to the internet” when trying to use Siri. Unfortunately, this is an <a href="https://developer.apple.com/forums/thread/677812">Apple bug</a>.</p>
+
+<h3 id="why-dont-siri-shortcuts-execute-in-the-background">Why don’t Siri Shortcuts execute in the background?</h3>
+
+<p>Unfortunately Apple is guilty of not fixing a related bug. I mean, it’s been there for years -since iOS 9 with my first bug report dating back to 2017- without them caring at all. No feedback and not even a proper response. And of course, no progress.</p>
+
+<p>This is one of the several threads remarking the issue:</p>
+
+<p><a href="https://forums.developer.apple.com/thread/96020">https://forums.developer.apple.com/thread/96020</a></p>
+
+<p>Now, due to this bug, App Extensions can’t control VPN using custom protocols -Siri Intents Extension in this case, in order to run shortcuts in the background. Only native VPN protocols work (IKEv2, IPsec etc.).</p>
+
+<p>In short, there’s really <em>nothing</em> I can do about it.</p>
 
 <h3 id="im-unable-to-add-my-wi-fi-to-trusted-networks">I’m unable to add my Wi-Fi to trusted networks</h3>
 
@@ -135,6 +148,21 @@
 </ul>
 
 <p>If you still struggle, don’t hesitate to get in touch.</p>
+
+<h3 id="i-had-purchased-this-app-before-yet-testflight-builds-are-restricted">I had purchased this app before yet TestFlight builds are restricted</h3>
+
+<p>Starting from 2.2.0, Public Beta builds from TestFlight recognize in-app purchases that you formerly made on the App Store.</p>
+
+<p>For that to happen:</p>
+
+<ul>
+  <li>Install the app from App Store first</li>
+  <li>If a paywall is triggered, restore your purchases</li>
+  <li>DO NOT uninstall the app, install a TestFlight build over the one you have</li>
+  <li>You should now see, in beta, the features you purchased on the App Store</li>
+</ul>
+
+<p>On the other hand, if you install a TestFlight build from scratch, paid features will not be available.</p>
 
 <h3 id="my-provider-is-not-listed">My provider is not listed</h3>
 
@@ -239,18 +267,6 @@ content of ta.key
 &lt;/tls-auth&gt;
 key-direction 1
 </code></pre></div></div>
-
-<h3 id="why-dont-siri-shortcuts-execute-in-the-background">Why don’t Siri Shortcuts execute in the background?</h3>
-
-<p>Unfortunately Apple is guilty of not fixing a related bug. I mean, it’s been there for years -since iOS 9 with my first bug report dating back to 2017- without them caring at all. No feedback and not even a proper response. And of course, no progress.</p>
-
-<p>This is one of the several threads remarking the issue:</p>
-
-<p><a href="https://forums.developer.apple.com/thread/96020">https://forums.developer.apple.com/thread/96020</a></p>
-
-<p>Now, due to this bug, App Extensions can’t control VPN using custom protocols -Siri Intents Extension in this case, in order to run shortcuts in the background. Only native VPN protocols work (IKEv2, IPsec etc.).</p>
-
-<p>In short, there’s really <em>nothing</em> I can do about it.</p>
 
 <h3 id="it-seems-that-my-traffic-doesnt-necessarily-go-through-the-vpn">It seems that my traffic doesn’t necessarily go through the VPN</h3>
 
