@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1703703852" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1704442467" />
     <meta name="twitter:description" content="Passepartout is a user-friendly VPN client for Apple platforms." />
 
     <!-- Facebook -->
@@ -31,23 +31,23 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is a user-friendly VPN client for Apple platforms." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1703703852" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1704442467" />
 
     <!-- Google+ -->
 
     <meta itemprop="name" content="Passepartout" />
     <meta itemprop="description" content="Passepartout is a user-friendly VPN client for Apple platforms." />
-    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1703703852" />
+    <meta itemprop="image" content="https://passepartoutvpn.app/s/logo.png?1704442467" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="https://plus.google.com/+keeshux" />
 
-    <link rel="stylesheet" href="/s/main.css?1703703852" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1703703852" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1704442467" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1704442467" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1703703852" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1703703852" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1704442467" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1704442467" />
 </head>
 
     <body>
@@ -62,8 +62,10 @@
     <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 
 <ul>
+  <li><a href="#why-use-icloud-to-share-profiles-with-the-apple-tv">Why use iCloud to share profiles with the Apple TV?</a></li>
+  <li><a href="my-profile-does-not-appear-on-the-apple-tv">My profile does not appear on the Apple TV</a></li>
   <li><a href="#i-am-concerned-with-icloud-privacy">I am concerned with iCloud privacy</a></li>
-  <li><a href="#i-disabled-icloud-from-settings-and-my-profiles-disappeared">I disabled iCloud from Settings and my profiles disappeared</a></li>
+  <li><a href="i-cannot-see-my-profiles-on-another-device">I cannot see my profiles on another device</a></li>
   <li><a href="#siri-does-not-work-with-encrypted-dns">Siri does not work with encrypted DNS</a></li>
   <li><a href="#why-dont-siri-shortcuts-execute-in-the-background">Why don’t Siri Shortcuts execute in the background?</a></li>
   <li><a href="#im-unable-to-add-my-wi-fi-to-on-demand-networks">I’m unable to add my Wi-Fi to on-demand networks</a></li>
@@ -84,15 +86,27 @@
   <li><a href="#mullvad-ignores-my-custom-dns-settings">Mullvad ignores my custom DNS settings</a></li>
 </ul>
 
+<h3 id="why-use-icloud-to-share-profiles-with-the-apple-tv">Why use iCloud to share profiles with the Apple TV?</h3>
+
+<p>As of January 2024, the Apple TV is very limited when it comes to file transfers. AirDrop and iCloud Drive were the most natural options for one-off “import and delete” of a profile, but they are not available. Another option was setting up a local server with a QR, but I find it quite a cumbersome UX.</p>
+
+<p>Therefore, given that version 2.3.0 supports end-to-end CloudKit encryption, I deemed iCloud a very decent trade-off between usability and privacy. Let alone the convenience of the simple toggle, the iOS/macOS apps act as a remote to reflect local changes instantly on your Apple TV. This benefits the UX of the TV app dramatically, where you just use the remote to change the profile or toggle the connection.</p>
+
+<p>Bear in mind that only “Apple TV” profiles are shared and synchronized over iCloud, non-shared profiles follow the global iCloud app preference.</p>
+
+<h3 id="my-profile-does-not-appear-on-the-apple-tv">My profile does not appear on the Apple TV</h3>
+
+<p>Make sure that the Apple ID of the <strong>default account</strong> of the Apple TV is the same Apple ID of the iOS/macOS device you are sharing the profile from. I could be wrong, but it seems to me that other accounts don’t get proper iCloud updates like the default account, i.e. the one you set up the Apple TV with.</p>
+
 <h3 id="i-am-concerned-with-icloud-privacy">I am concerned with iCloud privacy</h3>
 
-<p>Starting from version 2.2.0, iCloud synchronization is opt-in and disabled by default. Those upgrading to 2.2.0 will still see the option enabled to reflect the current app state, but you may disable it at any time. Additionally, in order to recover the best privacy, you may erase the existing iCloud store so that your profiles only stay on your device. If that is not enough, enter your iCloud settings, look for Passepartout inside “Manage Account Storage” and tap “Delete Data From iCloud”.</p>
+<p>Starting from version 2.2.0, iCloud synchronization is opt-in and disabled by default. Those upgrading to 2.2.0 will still see the option enabled to reflect the current app state, but you may disable it at any time. Rest assured that version 2.3.0, however, introduces end-to-end profile encryption.</p>
 
-<p>This has been my top priority as I’ve been aware of the issue soon after releasing iCloud support, but in this Reddit post I explain why <a href="https://www.reddit.com/r/passepartout/comments/16dyfp5/on_icloud_feature/">it took me a while to address it</a>. I hope this finally works as intended.</p>
+<p>If you mean to recover the best privacy, after disabling iCloud from the app, you may erase the existing store so that your profiles only stay on your device. If that is not enough, enter your iCloud settings, look for Passepartout inside “Manage Account Storage” and tap “Delete Data From iCloud”.</p>
 
-<h3 id="i-disabled-icloud-from-settings-and-my-profiles-disappeared">I disabled iCloud from Settings and my profiles disappeared</h3>
+<h3 id="i-cannot-see-my-profiles-on-another-device">I cannot see my profiles on another device</h3>
 
-<p>Disabling the iCloud toggle in iOS settings may result in a “No profiles” message. This is a bug and will also be addressed. Until then, please keep iCloud enabled.</p>
+<p>If you have iCloud enabled and have updated the app to 2.3.0 on one device, other devices with an older version may be unable to read the profiles because of end-to-end encryption. Update all your devices to 2.3.0 to recover them.</p>
 
 <h3 id="siri-does-not-work-with-encrypted-dns">Siri does not work with encrypted DNS</h3>
 
