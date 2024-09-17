@@ -1,8 +1,6 @@
-version: "3"
-
 services:
   web:
-    image: mac/jekyll
+    image: jekyll/jekyll
     container_name: passepartoutvpn-web
     volumes:
       - .:/srv/jekyll
@@ -13,3 +11,4 @@ services:
 networks:
   default:
     name: nginx-proxy
+    external: true
