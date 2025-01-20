@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout" />
     <meta name="twitter:url" content="https://passepartoutvpn.app" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1737380723" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1737394117" />
     <meta name="twitter:description" content="Passepartout is your go-to app for VPN and privacy." />
 
     <!-- Facebook -->
@@ -31,17 +31,17 @@
     <meta property="og:title" content="Passepartout" />
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:description" content="Passepartout is your go-to app for VPN and privacy." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1737380723" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1737394117" />
 
     <link rel="canonical" href="https://passepartoutvpn.app" />
     <link rel="author" href="" />
 
-    <link rel="stylesheet" href="/s/main.css?1737380723" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1737380723" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1737394117" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1737394117" media="only screen and (max-width: 600px)" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1737380723" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1737380723" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1737394117" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1737394117" />
 </head>
 
     <body>
@@ -56,6 +56,7 @@
     <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 
 <ul>
+  <li><a href="#the-app-is-asking-me-to-purchase-a-feature-i-don-t-use">The app is asking me to purchase a feature I don’t use</a></li>
   <li><a href="#migrated-profiles-require-me-to-purchase-the-on-demand-feature">Migrated profiles require me to purchase the on-demand feature</a></li>
   <li><a href="#apple-tv-profiles-do-not-sync-after-upgrading">Apple TV profiles do not sync after upgrading</a></li>
   <li><a href="#apple-tv-profiles-stopped-working-due-to-paid-features">Apple TV profiles stopped working due to paid features</a></li>
@@ -84,9 +85,21 @@
   <li><a href="#mullvad-ignores-my-custom-dns-settings">Mullvad ignores my custom DNS settings</a></li>
 </ul>
 
-<h3 id="migrated-profiles-require-me-to-purchase-the-on-demand-feature">Migrated profiles require me to purchase the on-demand feature</h3>
+<h3 id="the-app-is-asking-me-to-purchase-a-feature-i-dont-use">The app is asking me to purchase a feature I don’t use</h3>
 
-<p>Sorry, you are being requested a redundant purchase. The workaround is:</p>
+<p>Sorry, you may be requested a redundant purchase in the new app. These are unintended bugs, do NOT make the purchase. Find below some temporary workarounds.</p>
+
+<p>Check <a href="https://www.reddit.com/r/passepartout/comments/1i48waz/issues_in_300_to_be_resolved_asap/">this thread for updates</a>.</p>
+
+<h4 id="apple-tv-required-for-old-iosmacos-purchasers">Apple TV required for old iOS/macOS purchasers</h4>
+
+<p>(Jan 20) Please upgrade to 3.0.1, this is fixed.</p>
+
+<h4 id="migrated-profiles-may-erroneously-require-the-on-demand-feature">Migrated profiles may erroneously require the on-demand feature</h4>
+
+<p>(Jan 20) The fix is pending Apple review (1-2 days).</p>
+
+<p>The temporary workaround is:</p>
 
 <ul>
   <li>Edit the migrated profile</li>
@@ -95,27 +108,11 @@
   <li>Set “Policy” to “All networks”</li>
 </ul>
 
-<p>The orange icon will go away and you will connect as usual. This bug will be fixed ASAP.</p>
+<p>The orange icon will go away and you will connect as usual.</p>
 
 <h3 id="apple-tv-profiles-do-not-sync-after-upgrading">Apple TV profiles do not sync after upgrading</h3>
 
 <p>For profiles to sync properly on your TV, ALL apps must be upgraded to 3.0.0, not only the Apple TV. Make sure to upgrade your iOS and macOS apps and you should be good to go.</p>
-
-<h3 id="apple-tv-profiles-stopped-working-due-to-paid-features">Apple TV profiles stopped working due to paid features</h3>
-
-<p>Sadly this is a nasty regression from 3.0.0 and will be fixed ASAP.</p>
-
-<p>The temporary workaround is however easy:</p>
-
-<ul>
-  <li>Edit the profile</li>
-  <li>In case of on-demand, set “Policy” to “Any”, or disable it</li>
-  <li>Other modules with the orange sign, disable them temporarily</li>
-</ul>
-
-<p>and the profile will connect as usual on your TV.</p>
-
-<p>Check <a href="https://www.reddit.com/r/passepartout/comments/1i48waz/issues_in_300_to_be_resolved_asap/">this thread for updates</a>.</p>
 
 <h3 id="where-do-i-put-my-openvpn-credentials">Where do I put my OpenVPN credentials?</h3>
 
