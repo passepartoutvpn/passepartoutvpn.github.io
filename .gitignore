@@ -1,4 +1,9 @@
 .DS_Store
 *.swp
-log
-vhost.conf
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+build
+/docker-compose.yml
+Gemfile.lock

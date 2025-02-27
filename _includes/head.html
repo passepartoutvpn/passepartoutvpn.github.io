@@ -1,0 +1,42 @@
+{% assign meta_image_url = site.logo.meta_url | prepend: site.url | append: timestamp_suffix %}
+<head>
+    <title>{{ site.title }}</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="author" content="{{ site.author }}" />
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-title" content="{{ site.title_short }}">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@{{ site.twitter_username }}" />
+    <meta name="twitter:title" content="{{ site.title_short }}" />
+    <meta name="twitter:url" content="{{ site.url }}" />
+    <meta name="twitter:image" content="{{ meta_image_url }}" />
+    <meta name="twitter:description" content="{{ site.description }}" />
+
+    <!-- Facebook -->
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ site.url }}" />
+    <meta property="og:title" content="{{ site.title_short }}" />
+    <meta property="og:site_name" content="{{ site.title_short }}" />
+    <meta property="og:description" content="{{ site.description }}" />
+    <meta property="og:image" content="{{ meta_image_url }}" />
+
+    <link rel="canonical" href="{{ site.url }}" />
+    <link rel="author" href="{{ site.gplus_url }}" />
+
+    <link rel="stylesheet" href="/s/main.css{{ timestamp_suffix }}" />
+    <link rel="stylesheet" href="/s/main-mobile.css{{ timestamp_suffix }}" media="only screen and (max-width: 600px)" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{ site.logo.favicon_url }}{{ timestamp_suffix }}" />
+    <link rel="apple-touch-icon" href="{{ site.logo.ios_url }}{{ timestamp_suffix }}" />
+
+    {% include ga.html %}
+</head>

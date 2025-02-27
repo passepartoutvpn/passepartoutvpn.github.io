@@ -1,0 +1,14 @@
+{% assign canonical_url = page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url %}
+{% assign timestamp_suffix = site.time | date:"?%s" %}
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Blog">
+    {% include head.html %}
+    <body>
+        <div id="container">
+            {% include header.html %}
+            {{ content }}
+            {% include footer.html %}
+        </div>
+    </body>
+</html>

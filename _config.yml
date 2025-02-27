@@ -1,0 +1,44 @@
+# Site settings
+title: Your go-to app for VPN and privacy.
+title_short: Passepartout
+author: Davide De Rosa
+description: Passepartout is your go-to app for VPN and privacy.
+baseurl: ""
+url: "https://passepartoutvpn.app"
+permalink: /:year/:month/:day/:title/
+
+twitter_username: "keeshux"
+twitter_url: "https://twitter.com/keeshux"
+github_url: "https://github.com/passepartoutvpn"
+donation_url: "https://buymeacoffee.com/passepartout"
+author_url: "https://davidederosa.com"
+ga_id: "G-011WMEB3FJ"
+
+logo:
+    main_url: "/s/logo.svg"
+    meta_url: "/s/logo.png"
+    ios_url: "/s/iphone-icon-precomposed.png"
+    favicon_url: "/s/favicon.ico"
+
+itunes_url: "https://apps.apple.com/us/app/passepartout-vpn-client/id1433648537?mt=8"
+testflight_url: "https://testflight.apple.com/join/K71mtLjZ"
+reddit:
+    url: "https://www.reddit.com/r/passepartout"
+    name: "/r/passepartout"
+
+email:
+    info: info@passepartoutvpn.app
+    beta: beta@passepartoutvpn.app
+    privacy: privacy@passepartoutvpn.app
+    providers: providers@passepartoutvpn.app
+
+license:
+    url: "https://choosealicense.com/licenses/gpl-3.0/"
+    title: GPLv3
+    description: GPLv3
+
+# Build settings
+markdown: kramdown
+include: [.nojekyll]
+exclude: [Gemfile, exclude, scripts, "*.conf", "*.sh", "*.out"]
+destination: build
