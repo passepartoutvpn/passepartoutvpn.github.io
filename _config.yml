@@ -41,4 +41,3 @@ license:
 markdown: kramdown
 include: [.nojekyll]
 exclude: [Gemfile, exclude, scripts, "*.conf", "*.sh", "*.out"]
-destination: build

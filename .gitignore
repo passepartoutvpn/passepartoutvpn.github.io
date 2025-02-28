@@ -4,6 +4,5 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-build
 /docker-compose.yml
 Gemfile.lock
