@@ -6,6 +6,9 @@ description: Passepartout is your go-to app for VPN and privacy.
 baseurl: ""
 url: "https://passepartoutvpn.app"
 permalink: /:year/:month/:title/
+
+tag_page_layout: tag_page
+tag_page_dir: blog
 max_related_posts: 5
 
 twitter_username: "keeshux"

@@ -1,0 +1,13 @@
+---
+layout: page
+---
+
+<h2>Posts about "{{ page.tag }}"</h2>
+<ul id="blog-posts" class="all">
+    {% for post in page.posts %}
+    <li>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <h4>{{ post.date | date: "%b %d, %Y" }}</h4>
+    </li>
+    {% endfor %}
+</ul>

@@ -11,7 +11,12 @@ layout: default
         <div class="post-body">
             {{ page.content }}
         </div>
-        <p class="post-tags">Tags: {{ page.tags | join: ", " }}</p>
+        <p class="post-tags">
+            Tags:
+            {% for tag in page.tags %}
+            <a href="/blog/{{ tag }}">{{ tag }}</a>
+            {% endfor %}
+        </p>
         <div>
             <a href="/blog">Back to index</a>
         </div>
