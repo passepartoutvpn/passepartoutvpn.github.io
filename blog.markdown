@@ -2,13 +2,13 @@
 layout: page
 ---
 
-## Blog
+## All posts
 
-<ul>
-  {% for post in site.posts %}
+<ul id="blog-posts">
+    {% for post in site.posts %}
     <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span>{{ post.date | date: "%B %d, %Y" }}</span>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <h4>{{ post.date | date: "%b %d, %Y" }}</h4>
     </li>
-  {% endfor %}
+    {% endfor %}
 </ul>

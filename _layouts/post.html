@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<article class="post post-full" itemscope itemtype="https://schema.org/Article">
+    <header>
+        <div>
+            <h2 itemprop="name">
+                {{ page.title }}
+            </h2>
+            <span class="post-date" itemprop="datepublished">{{ page.date | date: "%b %-d, %Y" }}</span>
+        </div>
+        <div class="post-body">
+            {{ page.content }}
+        </div>
+        <div>
+            <a href="/blog">Back to index</a>
+        </div>
+    </header>
+</article>
+
+<h2>Recent posts</h2>
+<ul id="blog-posts">
+    {% for post in site.posts limit:site.recent_posts %}
+    <li>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <h4>{{ post.date | date: "%b %d, %Y" }}</h4>
+    </li>
+    {% endfor %}
+</ul>
