@@ -2,7 +2,7 @@
 layout: page
 ---
 
-## All posts
+## Blog
 
 <ul id="blog-posts">
     {% for post in site.posts %}
