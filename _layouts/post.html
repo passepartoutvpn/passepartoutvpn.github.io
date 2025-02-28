@@ -5,14 +5,13 @@ layout: default
 <article class="post post-full" itemscope itemtype="https://schema.org/Article">
     <header>
         <div>
-            <h2 itemprop="name">
-                {{ page.title }}
-            </h2>
-            <span class="post-date" itemprop="datepublished">{{ page.date | date: "%b %-d, %Y" }}</span>
+            <h2 itemprop="name">{{ page.title }}</h2>
+            <p class="post-date" itemprop="datepublished">{{ page.date | date: "%b %-d, %Y" }}</p>
         </div>
         <div class="post-body">
             {{ page.content }}
         </div>
+        <p class="post-tags">Tags: {{ page.tags | join: ", " }}</p>
         <div>
             <a href="/blog">Back to index</a>
         </div>
@@ -30,12 +29,12 @@ layout: default
 {% endfor %}
 
 {% if related_posts.size > 0 %}
-<h2>Related posts</h2>
+<h3>Related posts</h3>
 <ul id="blog-posts">
     {% for post in related_posts limit:site.recent_posts %}
     <li>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <h4>{{ post.date | date: "%b %d, %Y" }}</h4>
+        <span class="post-preview"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+        <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
     </li>
     {% endfor %}
 </ul>

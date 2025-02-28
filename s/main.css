@@ -121,9 +121,16 @@ footer ul {
 }
 
 .post {
-    margin-bottom: 3em;
+    margin-bottom: 4em;
+}
+
+.post-date, .post-tags {
+    color: #ccc;
 }
 
 .post-date {
-    color: #ccc;
+    margin: 0;
+}
+
+.post-tags {
 }
