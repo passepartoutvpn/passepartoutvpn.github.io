@@ -4,7 +4,7 @@ layout: page
 
 ## Blog
 
-<ul id="blog-posts">
+<ul id="blog-posts" class="all">
     {% for post in site.posts %}
     <li>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>

@@ -30,8 +30,8 @@ layout: default
 
 {% if related_posts.size > 0 %}
 <h3>Related posts</h3>
-<ul id="blog-posts">
-    {% for post in related_posts limit:site.recent_posts %}
+<ul id="blog-posts" class="related">
+    {% for post in related_posts limit:site.max_related_posts %}
     <li>
         <span class="post-preview"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
         <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>

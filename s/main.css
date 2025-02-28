@@ -112,8 +112,8 @@ footer ul {
     margin: 0;
 }
 
-#blog-posts li {
-    margin-bottom: 0.5em;
+#blog-posts.all li {
+    margin-bottom: 0.8em;
 }
 
 .post h2 {
