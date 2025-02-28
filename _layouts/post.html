@@ -19,12 +19,24 @@ layout: default
     </header>
 </article>
 
-<h2>Recent posts</h2>
+{% assign related_posts = "" | split: "," %}
+{% for post in site.posts %}
+    {% if post.url != page.url %}
+        {% assign common_tags = post.tags | uniq | sort | where_exp: "tag", "page.tags contains tag" %}
+        {% if common_tags.size > 0 %}
+            {% assign related_posts = related_posts | push: post %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% if related_posts.size > 0 %}
+<h2>Related posts</h2>
 <ul id="blog-posts">
-    {% for post in site.posts limit:site.recent_posts %}
+    {% for post in related_posts limit:site.recent_posts %}
     <li>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <h4>{{ post.date | date: "%b %d, %Y" }}</h4>
     </li>
     {% endfor %}
 </ul>
+{% endif %}
