@@ -134,3 +134,8 @@ footer ul {
 
 .post-tags {
 }
+
+.post code {
+    font-size: 0.7em;
+    overflow: scroll;
+}
