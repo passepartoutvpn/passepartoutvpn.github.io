@@ -35,17 +35,14 @@ aside ul {
     list-style-position: inside;
 }
 
-pre, code {
-    background-color: #ddd;
-    color: #515d71;
-}
-
-p code {
-    padding: 0.2em;
-}
-
-pre {
-    padding: 0.5em;
+pre code {
+    display: block;
+    background-color: #eee;
+    color: #333;
+    font-size: 0.8em;
+    padding: 0.6em;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 footer {
@@ -133,9 +130,4 @@ footer ul {
 }
 
 .post-tags {
-}
-
-.post code {
-    font-size: 0.7em;
-    overflow: scroll;
 }
