@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash/</loc>
+<lastmod>2025-03-02T00:00:00+01:00</lastmod>
+</url>
+<url>
 <loc>https://passepartoutvpn.app/about/</loc>
+</url>
+<url>
+<loc>https://passepartoutvpn.app/blog/</loc>
 </url>
 <url>
 <loc>https://passepartoutvpn.app/disclaimer/</loc>
@@ -20,5 +27,11 @@
 </url>
 <url>
 <loc>https://passepartoutvpn.app/providers/</loc>
+</url>
+<url>
+<loc>https://passepartoutvpn.app/blog/development/</loc>
+</url>
+<url>
+<loc>https://passepartoutvpn.app/blog/swift/</loc>
 </url>
 </urlset>

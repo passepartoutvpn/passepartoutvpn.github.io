@@ -16,14 +16,14 @@ a:hover {
 }
 
 #logo {
-    width: 150px;
-    height: 400px;
+    width: 100px;
+    height: 300px;
     margin: -2em 0em;
 }
 
 #container {
     margin: 2em auto 3em auto;
-    width: 32em;
+    width: 40em;
 }
 
 p, ul {
@@ -91,4 +91,51 @@ footer ul {
 
 .app-store-badge {
     height: 50px;
+}
+
+/* blog */
+
+#blog-posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#blog-posts h3 {
+    font-weight: normal;
+    margin: 0;
+}
+
+#blog-posts h4 {
+    font-weight: normal;
+    color: #ddd;
+    margin: 0;
+}
+
+#blog-posts.all li {
+    margin-bottom: 0.8em;
+}
+
+.post h2 {
+    margin-bottom: 0.1em;
+}
+
+.post {
+    margin-bottom: 3em;
+}
+
+.post-date, .post-tags {
+    color: #ccc;
+}
+
+.post-date {
+    margin: 0;
+}
+
+.post-tags {
+}
+
+.post code {
+    font-size: 0.7em;
+    overflow: scroll;
 }
