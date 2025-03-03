@@ -1,0 +1,182 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Blog">
+    
+<head>
+    <title>Your go-to app for VPN and privacy.</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="author" content="Davide De Rosa" />
+    <meta name="description" content="Passepartout is your go-to app for VPN and privacy." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-title" content="Passepartout">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@keeshux" />
+    <meta name="twitter:title" content="Passepartout" />
+    <meta name="twitter:url" content="https://passepartoutvpn.app" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1740998737" />
+    <meta name="twitter:description" content="Passepartout is your go-to app for VPN and privacy." />
+
+    <!-- Facebook -->
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://passepartoutvpn.app" />
+    <meta property="og:title" content="Passepartout" />
+    <meta property="og:site_name" content="Passepartout" />
+    <meta property="og:description" content="Passepartout is your go-to app for VPN and privacy." />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1740998737" />
+
+    <link rel="canonical" href="https://passepartoutvpn.app" />
+    <link rel="author" href="" />
+
+    <link rel="stylesheet" href="/s/main.css?1740998737" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1740998737" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="/s/favicon.ico?1740998737" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1740998737" />
+
+    
+
+</head>
+
+    <body>
+        <div id="container">
+            <header>
+    <a href="https://passepartoutvpn.app"><img id="logo" src="/s/logo.svg" alt="Passepartout" /></a>
+    <h1><a href="https://passepartoutvpn.app">Passepartout</a></h1>
+    <p>Your go-to app for VPN and privacy.</p>
+</header>
+
+            <article class="post post-full" itemscope itemtype="https://schema.org/Article">
+    <header>
+        <div>
+            <h2 itemprop="name">Deploying to the App Store: The cost you didn't expect</h2>
+            <p class="post-date" itemprop="datepublished">Mar 3, 2025</p>
+        </div>
+        <div class="post-body">
+            <h3 id="its-just-an-app-right">It’s just an app, right?</h3>
+
+<p>Many people are confident that <em>The Idea</em> is the most valuable aspect of a product.</p>
+
+<p>Unfortunately, if you developed an app for the App Store, at any level of complexity, you know how exhausting the whole process is. There is so much more than “writing the code”, which is nothing trivial to start with.</p>
+
+<h3 id="the-app-store-requirements-will-beat-you">The App Store requirements will beat you</h3>
+
+<p>Choosing the icons. Crafting the screenshots. Writing the metadata. Picking the categories. Localizations. The business model. In-app purchases. Sorting out the legal aspects. The App Review process. And so on.</p>
+
+<p>Wait, have I mentioned the codesigning process? Development, Ad-Hoc, Distribution. Multiple platforms. Debug and Release.</p>
+
+<p>Especially at the beginning, it’s overwhelming and discouraging. We’ve all been there.</p>
+
+<p>If your app is also profitable (and I hope it is), another thing you may think of is the 15-30% cut that Apple takes from your hard-earned revenue. This hurts even more if you’re an indie developer like me.</p>
+
+<h3 id="the-fear-of-change">The fear of change</h3>
+
+<p>Here’s a very subtle side-effect of the above: once your setup finally works, you might refrain from changing.</p>
+
+<p>Some relatable examples:</p>
+
+<ul>
+  <li>If I change the UI, I will have to change the screenshots for X languages and Y platforms.</li>
+  <li>If I alter some inner logic, I will get a rejection from Apple.</li>
+  <li>If I introduce a regression, I will get bad reviews.</li>
+  <li>Even if I have a hotfix in time, Apple will push my release back for silly reasons.</li>
+</ul>
+
+<p>It goes without saying, this is an atrocious outcome for your product. If you work alone with no one to delegate these annoyances to, you risk falling into the ultimate recipe for failure.</p>
+
+<p><em>Stagnation is the hidden cost of expensive deployment.</em></p>
+
+<h3 id="you-must-learn-to-automate">You MUST learn to automate</h3>
+
+<p>The key to keeping focus on the product is <em>automation</em>. It’s boring at first, but in the long run, it’s your best bet against the inevitable frustration of using App Store Connect.</p>
+
+<ul>
+  <li>If you find yourself doing 3+ times the same task, automate it.</li>
+  <li>If a task doesn’t need constant interaction, automate it.</li>
+  <li>If a task is sensitive to human mistakes, automate it.</li>
+</ul>
+
+<p>Observe your routine and you will soon realize how many hours you are wasting on dumb tasks, time you could have spent on useful features for your customers.</p>
+
+<h3 id="continuous-integration-is-underused">Continuous integration is underused!</h3>
+
+<p>After 15 years working with Apple devices, I can still confirm this trend: the vast majority of iOS developers don’t know jack about <em>continuous integration</em>.</p>
+
+<p>Which is crazy because <a href="https://docs.fastlane.tools/">fastlane</a>, an amazing tool created by <a href="https://krausefx.com/">Felix Krause</a>, has been around since 2014.</p>
+
+<p>The other tool I want to recommend, <a href="https://github.com/features/actions">GitHub Actions</a>, has a shorter history, but there were still alternatives: Travis-CI, GitLab, Circle-CI, and whatnot.</p>
+
+<h3 id="the-use-of-ci-in-passepartout">The use of CI in Passepartout</h3>
+
+<p>In the next posts, I will tell you in detail how fastlane and GitHub Actions helped me immensely with the fast turnaround of Passepartout releases.</p>
+
+<p>In the era of LLMs, you have no excuses to waste your valuable time on this stuff.</p>
+
+<p>Stay in touch.</p>
+
+        </div>
+        <p class="post-tags">
+            Tags:
+            
+            <a href="/blog/development">development</a>
+            
+            <a href="/blog/ci/cd">ci/cd</a>
+            
+        </p>
+        <div>
+            <a href="/blog">Back to index</a>
+        </div>
+    </header>
+</article>
+
+
+
+
+
+<h3>Related posts</h3>
+<ul id="blog-posts" class="related">
+    
+    <li>
+        <span class="post-preview"><a href="/2025/03/the-path-to-an-obscure-crash/">The path to an obscure crash</a></span>
+        <span class="post-date">Mar 02, 2025</span>
+    </li>
+    
+</ul>
+
+
+            <footer>
+    <ul class="contacts">
+        <li><a href="https://github.com/passepartoutvpn" title="The project on GitHub" class="fab fa-github"></a></li>
+        <li><a href="https://buymeacoffee.com/passepartout" title="Support with a donation" class="fas fa-coins"></a></li>
+        <li><a href="https://x.com/keeshux" title="Follow the author on X" class="fab fa-x-twitter"></a></li>
+        <li><a href="mailto:info@passepartoutvpn.app" title="Submit an inquiry" class="fa fa-envelope"></a></li>
+    </ul>
+    <ul class="secondary">
+        <li><a href="/faq/" title="Frequently Asked Questions">FAQ</a></li>
+        <li>|</li>
+        <li><a href="/blog/" title="Articles about Passepartout">Blog</a></li>
+        <li>|</li>
+        <li><a href="/providers/" title="Providers">Providers</a></li>
+        <li>|</li>
+        <li><a href="/about/" title="The team and story behind Passepartout">About</a></li>
+    </ul>
+    <p class="notice">
+        The logo is taken from the awesome <a href="https://www.iconfinder.com/iconsets/circle-icons-1" title="Circle Icons">Circle Icons</a> set by <a href="https://www.elegantthemes.com/" title="Elegant Themes">Nick Roach</a>.<br />
+        Make sure to read the <a href="/privacy/" title="Privacy policy">privacy policy</a>.<br />
+        <br />
+        Copyright (c) 2025 <a href="https://davidederosa.com" title="The author website">Davide De Rosa</a>
+    </p>
+</footer>
+
+        </div>
+    </body>
+</html>

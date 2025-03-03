@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-03-03T09:47:32+01:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">The path to an obscure crash</title><link href="https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash/" rel="alternate" type="text/html" title="The path to an obscure crash" /><published>2025-03-02T00:00:00+01:00</published><updated>2025-03-02T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash/"><![CDATA[<p>One month after its first, painful release, Passepartout v3 is close to being stable.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-03-03T11:45:37+01:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Deploying to the App Store: The cost you didn’t expect</title><link href="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" rel="alternate" type="text/html" title="Deploying to the App Store: The cost you didn’t expect" /><published>2025-03-03T00:00:00+01:00</published><updated>2025-03-03T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/"><![CDATA[<h3 id="its-just-an-app-right">It’s just an app, right?</h3>
+
+<p>Many people are confident that <em>The Idea</em> is the most valuable aspect of a product.</p>
+
+<p>Unfortunately, if you developed an app for the App Store, at any level of complexity, you know how exhausting the whole process is. There is so much more than “writing the code”, which is nothing trivial to start with.</p>
+
+<h3 id="the-app-store-requirements-will-beat-you">The App Store requirements will beat you</h3>
+
+<p>Choosing the icons. Crafting the screenshots. Writing the metadata. Picking the categories. Localizations. The business model. In-app purchases. Sorting out the legal aspects. The App Review process. And so on.</p>
+
+<p>Wait, have I mentioned the codesigning process? Development, Ad-Hoc, Distribution. Multiple platforms. Debug and Release.</p>
+
+<p>Especially at the beginning, it’s overwhelming and discouraging. We’ve all been there.</p>
+
+<p>If your app is also profitable (and I hope it is), another thing you may think of is the 15-30% cut that Apple takes from your hard-earned revenue. This hurts even more if you’re an indie developer like me.</p>
+
+<h3 id="the-fear-of-change">The fear of change</h3>
+
+<p>Here’s a very subtle side-effect of the above: once your setup finally works, you might refrain from changing.</p>
+
+<p>Some relatable examples:</p>
+
+<ul>
+  <li>If I change the UI, I will have to change the screenshots for X languages and Y platforms.</li>
+  <li>If I alter some inner logic, I will get a rejection from Apple.</li>
+  <li>If I introduce a regression, I will get bad reviews.</li>
+  <li>Even if I have a hotfix in time, Apple will push my release back for silly reasons.</li>
+</ul>
+
+<p>It goes without saying, this is an atrocious outcome for your product. If you work alone with no one to delegate these annoyances to, you risk falling into the ultimate recipe for failure.</p>
+
+<p><em>Stagnation is the hidden cost of expensive deployment.</em></p>
+
+<h3 id="you-must-learn-to-automate">You MUST learn to automate</h3>
+
+<p>The key to keeping focus on the product is <em>automation</em>. It’s boring at first, but in the long run, it’s your best bet against the inevitable frustration of using App Store Connect.</p>
+
+<ul>
+  <li>If you find yourself doing 3+ times the same task, automate it.</li>
+  <li>If a task doesn’t need constant interaction, automate it.</li>
+  <li>If a task is sensitive to human mistakes, automate it.</li>
+</ul>
+
+<p>Observe your routine and you will soon realize how many hours you are wasting on dumb tasks, time you could have spent on useful features for your customers.</p>
+
+<h3 id="continuous-integration-is-underused">Continuous integration is underused!</h3>
+
+<p>After 15 years working with Apple devices, I can still confirm this trend: the vast majority of iOS developers don’t know jack about <em>continuous integration</em>.</p>
+
+<p>Which is crazy because <a href="https://docs.fastlane.tools/">fastlane</a>, an amazing tool created by <a href="https://krausefx.com/">Felix Krause</a>, has been around since 2014.</p>
+
+<p>The other tool I want to recommend, <a href="https://github.com/features/actions">GitHub Actions</a>, has a shorter history, but there were still alternatives: Travis-CI, GitLab, Circle-CI, and whatnot.</p>
+
+<h3 id="the-use-of-ci-in-passepartout">The use of CI in Passepartout</h3>
+
+<p>In the next posts, I will tell you in detail how fastlane and GitHub Actions helped me immensely with the fast turnaround of Passepartout releases.</p>
+
+<p>In the era of LLMs, you have no excuses to waste your valuable time on this stuff.</p>
+
+<p>Stay in touch.</p>]]></content><author><name>Davide De Rosa</name></author><category term="development" /><category term="ci/cd" /><summary type="html"><![CDATA[It’s just an app, right?]]></summary></entry><entry><title type="html">The path to an obscure crash</title><link href="https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash/" rel="alternate" type="text/html" title="The path to an obscure crash" /><published>2025-03-02T00:00:00+01:00</published><updated>2025-03-02T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash/"><![CDATA[<p>One month after its first, painful release, Passepartout v3 is close to being stable.</p>
 
 <p>However, a couple of regressions were still haunting me.</p>
 
