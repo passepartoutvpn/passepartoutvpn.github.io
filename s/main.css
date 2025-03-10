@@ -35,6 +35,10 @@ aside ul {
     list-style-position: inside;
 }
 
+.h-scrolling {
+    overflow-x: auto;
+}
+
 pre code {
     display: block;
     background-color: #eee;
