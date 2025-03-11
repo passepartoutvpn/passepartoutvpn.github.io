@@ -1,0 +1,193 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Blog">
+    
+<head>
+    <title>Passepartout is your go-to app for VPN and privacy.</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="author" content="Davide De Rosa" />
+    <meta name="description" content="Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-title" content="Passepartout">
+
+    <!-- OpenGraph -->
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Passepartout" />
+    <meta property="og:title" content="Rewriting Passepartout for v3" />
+    <meta property="og:description" content="Rewriting Passepartout for v3" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1741729895" />
+    <meta property="og:url" content="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/" />
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@keeshux" />
+    <meta name="twitter:title" content="Rewriting Passepartout for v3" />
+    <meta name="twitter:description" content="Rewriting Passepartout for v3" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1741729895" />
+    <meta name="twitter:url" content="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/" />
+
+    <link rel="canonical" href="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/" />
+    <link rel="author" href="https://davidederosa.com" />
+
+    <link rel="stylesheet" href="/s/main.css?1741729895" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1741729895" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="/s/favicon.ico?1741729895" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1741729895" />
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-011WMEB3FJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', 'G-011WMEB3FJ');
+</script>
+
+
+</head>
+
+    <body>
+        <div id="container">
+            <header>
+    <a href="https://passepartoutvpn.app"><img id="logo" src="/s/logo.svg" alt="Passepartout" /></a>
+    <h1><a href="https://passepartoutvpn.app">Passepartout</a></h1>
+    <p>Your go-to app for VPN and privacy.</p>
+</header>
+
+            <article class="post post-full" itemscope itemtype="https://schema.org/Article">
+    <header>
+        <div>
+            <h2 itemprop="name">Rewriting Passepartout for v3</h2>
+            <p class="post-date" itemprop="datepublished">Mar 11, 2025</p>
+            <p class="post-tags">
+                Tags:
+                
+                <a href="/blog/development">development</a>
+                
+                <a href="/blog/refactoring">refactoring</a>
+                
+                <a href="/blog/planning">planning</a>
+                
+            </p>
+        </div>
+        <div class="post-body">
+            <p>For software to live a long life, it must grow together with our experience. If our skills improve at a faster pace than we maintain our software, its design will start to drift away from our standards and expectations. If we let the gap increase for too long, it will eventually be impossible to catch up, and we’ll end up hating our creations.</p>
+
+<h2 id="version-2-was-a-mess">Version 2 was a mess</h2>
+
+<p>Passepartout used to be two separate iOS and macOS apps, with all the complications that this implies. In 2022, I used Passepartout to learn <a href="https://developer.apple.com/xcode/swiftui/">SwiftUI</a> –I considered Flutter initially– and make v2 a partially multiplatform app. Partially because the macOS app was a hybrid <a href="https://developer.apple.com/mac-catalyst/">Catalyst/iPad</a> app, a terrible choice if I think of it today. I don’t even know why I did it, but whatever.</p>
+
+<p>The conclusions I drew after v2:</p>
+
+<ul>
+  <li>SwiftUI is <em>much harder</em> than it seems, I had to rewrite my views multiple times due to my wrong understanding of the framework.</li>
+  <li>Catalyst made the macOS app an ugly and unstable iPadOS app, let alone a complete nightmare to develop.</li>
+  <li>The time I spent on the Mac system menu, in particular, was beyond ridiculous. Maybe I’ll dedicate a post to this clunky Catalyst/AppKit interaction.</li>
+  <li>The app core was overengineered, untested, untestable, and confusing.</li>
+  <li><a href="https://github.com/passepartoutvpn/tunnelkit">TunnelKit</a> was already unmanageable and inextensible. Touching the wrong line could break connectivity for thousands of users.</li>
+</ul>
+
+<p>I’m aware that we, developers, occasionally suffer an innate tendency to be unsatisfied with our choices, whatever they are. Redoing the same things over and over is detrimental to making progress, though. Therefore, rewriting software should <em>never</em> be your first choice. That’s why I ruminated around the idea for months, but the rewrite was inevitable 7 years after the first release.</p>
+
+<p>Users don’t and can’t realize the amount of bugs that Passepartout v2 and TunnelKit had. The codebase, <em>my codebase</em>, was such a high barrier that it took me a year (2022 to 2023) to resolve some legitimate concerns with iCloud. Requests/bugs were sadly flowing at 30x the speed I was able to address them. The app was half abandoned.</p>
+
+<p>It’s, however, very risky to rewrite an app that was stable, making decent money, and required very little support despite a user base in the hundreds of thousands. To end up, one year later, with the same app with more or less the same features.</p>
+
+<p>Rewriting must be <em>really</em> worth it.</p>
+
+<h2 id="the-costbenefit-of-rewriting-software">The cost/benefit of rewriting software</h2>
+
+<p>Version 3 is the last time I <em>intend</em> to attack the foundations of Passepartout.</p>
+
+<p>So many times I rewrote code in my life with the sole intent of working in a “beautiful” codebase, not realizing how quickly the enthusiasm wanes when the development routine is back to normal. Give it a few months and, no matter what, your codebase will look “ugly” again. It never ends.</p>
+
+<p>I learned not to rely on “beauty” to bring me back to the joy of programming. After all, when I wrote those nasty lines 10 years ago, I probably thought it was the state of the art. Right?</p>
+
+<p>Today, I try to refactor software as a regular exercise, but at a smaller scale, and with a different purpose:</p>
+
+<p><strong>Make my changes last as long as possible.</strong></p>
+
+<p>Below is what I did in 2024 –part-time until August– for this major update:</p>
+
+<ul>
+  <li><a href="https://github.com/orgs/passepartoutvpn/projects/1/views/4?filterQuery=">The GitHub Project for v3</a></li>
+  <li><a href="https://github.com/orgs/passepartoutvpn/projects/1/views/8?filterQuery=">The tasks split by goal</a></li>
+</ul>
+
+<p>The project encompassed ~1000 items, of which ~350 are invisible for being in private repositories. An insane amount of work, in hindsight.</p>
+
+<p>Today, I can confirm that it was by no means a waste of time. After one year of development, the success of this reengineering is summarized in a sentence:</p>
+
+<p><strong>Most areas of Passepartout won’t need to be modified for years to come.</strong></p>
+
+<p>This is the single measure you want to focus on when considering a big architectural redesign: the time you save in the long run must dramatically compensate for the effort of rewriting. With this mantra, good design will be the natural consequence. Because good design, ultimately, is meant to save development time.</p>
+
+<p>The best code of your software is the one you forget about, the one you don’t need to touch ever again.</p>
+
+        </div>
+        <div>
+            
+            <p><a href="/blog">Back to index</a></p>
+        </div>
+    </header>
+</article>
+
+
+
+
+
+<h3>Related posts</h3>
+<ul id="blog-posts" class="related">
+    
+    <li>
+        <span class="post-preview"><a href="/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/">Deploying to the App Store: The cost you didn't expect</a></span>
+        <span class="post-date">Mar 03, 2025</span>
+    </li>
+    
+    <li>
+        <span class="post-preview"><a href="/2025/03/the-path-to-an-obscure-crash/">The path to an obscure crash</a></span>
+        <span class="post-date">Mar 02, 2025</span>
+    </li>
+    
+</ul>
+
+
+            <footer>
+    <ul class="contacts">
+        <li><a href="https://github.com/passepartoutvpn" title="The project on GitHub" class="fab fa-github"></a></li>
+        <li><a href="https://buymeacoffee.com/passepartout" title="Support with a donation" class="fas fa-coins"></a></li>
+        <li><a href="https://x.com/keeshux" title="Follow the author on X" class="fab fa-x-twitter"></a></li>
+        <li><a href="mailto:info@passepartoutvpn.app" title="Submit an inquiry" class="fa fa-envelope"></a></li>
+        <li><a href="https://passepartoutvpn.app/feed.xml" title="Subscribe to the blog" class="fa-solid fa-rss"></a></li>
+    </ul>
+    <ul class="secondary">
+        <li><a href="/faq/" title="Frequently Asked Questions">FAQ</a></li>
+        <li>|</li>
+        <li><a href="/blog/" title="Articles about Passepartout">Blog</a></li>
+        <li>|</li>
+        <li><a href="/providers/" title="Providers">Providers</a></li>
+        <li>|</li>
+        <li><a href="/about/" title="The team and story behind Passepartout">About</a></li>
+    </ul>
+    <p class="notice">
+        The logo is taken from the awesome <a href="https://www.iconfinder.com/iconsets/circle-icons-1" title="Circle Icons">Circle Icons</a> set by <a href="https://www.elegantthemes.com/" title="Elegant Themes">Nick Roach</a>.<br />
+        Make sure to read the <a href="/privacy/" title="Privacy policy">privacy policy</a>.<br />
+        <br />
+        Copyright (c) 2025 <a href="https://davidederosa.com" title="The author website">Davide De Rosa</a>
+    </p>
+</footer>
+
+        </div>
+    </body>
+</html>

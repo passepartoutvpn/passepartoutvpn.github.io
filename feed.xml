@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-03-11T22:49:33+01:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Deploying to the App Store: The cost you didn’t expect</title><link href="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" rel="alternate" type="text/html" title="Deploying to the App Store: The cost you didn’t expect" /><published>2025-03-03T00:00:00+01:00</published><updated>2025-03-03T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/"><![CDATA[<p>Passepartout has had a <a href="https://github.com/passepartoutvpn/passepartout/actions/runs/13551048532">solid and unique CI/CD workflow</a> for years, from Git commits straight to the App Store. For iPhone, iPad, Mac, and Apple TV.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-03-11T22:51:35+01:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Rewriting Passepartout for v3</title><link href="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/" rel="alternate" type="text/html" title="Rewriting Passepartout for v3" /><published>2025-03-11T00:00:00+01:00</published><updated>2025-03-11T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/"><![CDATA[<p>For software to live a long life, it must grow together with our experience. If our skills improve at a faster pace than we maintain our software, its design will start to drift away from our standards and expectations. If we let the gap increase for too long, it will eventually be impossible to catch up, and we’ll end up hating our creations.</p>
+
+<h2 id="version-2-was-a-mess">Version 2 was a mess</h2>
+
+<p>Passepartout used to be two separate iOS and macOS apps, with all the complications that this implies. In 2022, I used Passepartout to learn <a href="https://developer.apple.com/xcode/swiftui/">SwiftUI</a> –I considered Flutter initially– and make v2 a partially multiplatform app. Partially because the macOS app was a hybrid <a href="https://developer.apple.com/mac-catalyst/">Catalyst/iPad</a> app, a terrible choice if I think of it today. I don’t even know why I did it, but whatever.</p>
+
+<p>The conclusions I drew after v2:</p>
+
+<ul>
+  <li>SwiftUI is <em>much harder</em> than it seems, I had to rewrite my views multiple times due to my wrong understanding of the framework.</li>
+  <li>Catalyst made the macOS app an ugly and unstable iPadOS app, let alone a complete nightmare to develop.</li>
+  <li>The time I spent on the Mac system menu, in particular, was beyond ridiculous. Maybe I’ll dedicate a post to this clunky Catalyst/AppKit interaction.</li>
+  <li>The app core was overengineered, untested, untestable, and confusing.</li>
+  <li><a href="https://github.com/passepartoutvpn/tunnelkit">TunnelKit</a> was already unmanageable and inextensible. Touching the wrong line could break connectivity for thousands of users.</li>
+</ul>
+
+<p>I’m aware that we, developers, occasionally suffer an innate tendency to be unsatisfied with our choices, whatever they are. Redoing the same things over and over is detrimental to making progress, though. Therefore, rewriting software should <em>never</em> be your first choice. That’s why I ruminated around the idea for months, but the rewrite was inevitable 7 years after the first release.</p>
+
+<p>Users don’t and can’t realize the amount of bugs that Passepartout v2 and TunnelKit had. The codebase, <em>my codebase</em>, was such a high barrier that it took me a year (2022 to 2023) to resolve some legitimate concerns with iCloud. Requests/bugs were sadly flowing at 30x the speed I was able to address them. The app was half abandoned.</p>
+
+<p>It’s, however, very risky to rewrite an app that was stable, making decent money, and required very little support despite a user base in the hundreds of thousands. To end up, one year later, with the same app with more or less the same features.</p>
+
+<p>Rewriting must be <em>really</em> worth it.</p>
+
+<h2 id="the-costbenefit-of-rewriting-software">The cost/benefit of rewriting software</h2>
+
+<p>Version 3 is the last time I <em>intend</em> to attack the foundations of Passepartout.</p>
+
+<p>So many times I rewrote code in my life with the sole intent of working in a “beautiful” codebase, not realizing how quickly the enthusiasm wanes when the development routine is back to normal. Give it a few months and, no matter what, your codebase will look “ugly” again. It never ends.</p>
+
+<p>I learned not to rely on “beauty” to bring me back to the joy of programming. After all, when I wrote those nasty lines 10 years ago, I probably thought it was the state of the art. Right?</p>
+
+<p>Today, I try to refactor software as a regular exercise, but at a smaller scale, and with a different purpose:</p>
+
+<p><strong>Make my changes last as long as possible.</strong></p>
+
+<p>Below is what I did in 2024 –part-time until August– for this major update:</p>
+
+<ul>
+  <li><a href="https://github.com/orgs/passepartoutvpn/projects/1/views/4?filterQuery=">The GitHub Project for v3</a></li>
+  <li><a href="https://github.com/orgs/passepartoutvpn/projects/1/views/8?filterQuery=">The tasks split by goal</a></li>
+</ul>
+
+<p>The project encompassed ~1000 items, of which ~350 are invisible for being in private repositories. An insane amount of work, in hindsight.</p>
+
+<p>Today, I can confirm that it was by no means a waste of time. After one year of development, the success of this reengineering is summarized in a sentence:</p>
+
+<p><strong>Most areas of Passepartout won’t need to be modified for years to come.</strong></p>
+
+<p>This is the single measure you want to focus on when considering a big architectural redesign: the time you save in the long run must dramatically compensate for the effort of rewriting. With this mantra, good design will be the natural consequence. Because good design, ultimately, is meant to save development time.</p>
+
+<p>The best code of your software is the one you forget about, the one you don’t need to touch ever again.</p>]]></content><author><name>Davide De Rosa</name></author><category term="development" /><category term="refactoring" /><category term="planning" /><summary type="html"><![CDATA[For software to live a long life, it must grow together with our experience. If our skills improve at a faster pace than we maintain our software, its design will start to drift away from our standards and expectations. If we let the gap increase for too long, it will eventually be impossible to catch up, and we’ll end up hating our creations.]]></summary></entry><entry><title type="html">Deploying to the App Store: The cost you didn’t expect</title><link href="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" rel="alternate" type="text/html" title="Deploying to the App Store: The cost you didn’t expect" /><published>2025-03-03T00:00:00+01:00</published><updated>2025-03-03T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/"><![CDATA[<p>Passepartout has had a <a href="https://github.com/passepartoutvpn/passepartout/actions/runs/13551048532">solid and unique CI/CD workflow</a> for years, from Git commits straight to the App Store. For iPhone, iPad, Mac, and Apple TV.</p>
 
 <p>I dare to say, automated releases are hardly (if <em>ever</em>) seen in open-source *OS apps.</p>
 
