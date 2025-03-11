@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-03-10T18:20:53+01:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Deploying to the App Store: The cost you didn’t expect</title><link href="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" rel="alternate" type="text/html" title="Deploying to the App Store: The cost you didn’t expect" /><published>2025-03-03T00:00:00+01:00</published><updated>2025-03-03T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/"><![CDATA[<p>Passepartout has had a <a href="https://github.com/passepartoutvpn/passepartout/actions/runs/13551048532">solid and unique CI/CD workflow</a> for years, from Git commits straight to the App Store. For iPhone, iPad, Mac, and Apple TV.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-03-11T13:02:54+01:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Deploying to the App Store: The cost you didn’t expect</title><link href="https://passepartoutvpn.app/2025/03/the-roadmap-for-2025/" rel="alternate" type="text/html" title="Deploying to the App Store: The cost you didn’t expect" /><published>2025-03-11T00:00:00+01:00</published><updated>2025-03-11T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/the-roadmap-for-2025</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/the-roadmap-for-2025/"><![CDATA[<h1 id="the-roadmap-for-2025">The roadmap for 2025</h1>
+
+<p>post on blog+reddit about 3.0.0 → 3.2.0 and roadmap</p>
+
+<ul>
+  <li>3.0.0 -&gt; 3.2.0</li>
+</ul>
+
+<p><a href="https://github.com/orgs/passepartoutvpn/projects/9/views/2?sliceBy%5Bvalue%5D=Stable+v3&amp;filterQuery=">https://github.com/orgs/passepartoutvpn/projects/9/views/2?sliceBy%5Bvalue%5D=Stable+v3&amp;filterQuery=</a></p>
+
+<ul>
+  <li>closed issues (project Q1-Q4 has 1000 items)
+    <ul>
+      <li>the 354 with “No topic” are from private repos</li>
+      <li>post CI/CD</li>
+    </ul>
+  </li>
+  <li>list the improvements of v3 over v2 that nobody talks about
+    <ul>
+      <li>the unique App Store open model + CI/CD</li>
+      <li>release notes in App Store with links to the code that fixes the bug</li>
+      <li>easy DoH/DoT setup</li>
+      <li>low crash rate</li>
+      <li>seamless wifi/4g roaming</li>
+      <li>…</li>
+    </ul>
+  </li>
+  <li>roadmap
+  X public “Consolidation” project
+    <ul>
+      <li>share “Blog”
+        <ul>
+          <li>inspire and educate with the app</li>
+        </ul>
+      </li>
+      <li>.dmg release</li>
+      <li>PassepartoutKit</li>
+      <li>multiplatform</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Davide De Rosa</name></author><category term="development" /><category term="ci/cd" /><summary type="html"><![CDATA[The roadmap for 2025]]></summary></entry><entry><title type="html">Deploying to the App Store: The cost you didn’t expect</title><link href="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" rel="alternate" type="text/html" title="Deploying to the App Store: The cost you didn’t expect" /><published>2025-03-03T00:00:00+01:00</published><updated>2025-03-03T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/"><![CDATA[<p>Passepartout has had a <a href="https://github.com/passepartoutvpn/passepartout/actions/runs/13551048532">solid and unique CI/CD workflow</a> for years, from Git commits straight to the App Store. For iPhone, iPad, Mac, and Apple TV.</p>
 
 <p>I dare to say, automated releases are hardly (if <em>ever</em>) seen in open-source *OS apps.</p>
 
