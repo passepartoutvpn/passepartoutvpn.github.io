@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-03-12T10:02:56+01:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Rewriting Passepartout for v3</title><link href="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/" rel="alternate" type="text/html" title="Rewriting Passepartout for v3" /><published>2025-03-11T00:00:00+01:00</published><updated>2025-03-11T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/"><![CDATA[<p>For software to live a long life, it must grow together with our experience. If our skills improve at a faster pace than we maintain our software, its design will start to drift away from our standards and expectations. If we let the gap increase for too long, it will eventually be impossible to catch up, and we’ll end up hating our creations.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-03-17T10:10:18+01:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">The roadmap for 2025</title><link href="https://passepartoutvpn.app/2025/03/the-roadmap-for-2025/" rel="alternate" type="text/html" title="The roadmap for 2025" /><published>2025-03-17T00:00:00+01:00</published><updated>2025-03-17T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/the-roadmap-for-2025</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/the-roadmap-for-2025/"><![CDATA[<p>Recently, I made <a href="https://github.com/orgs/passepartoutvpn/projects/9">my current backlog</a> public. I like to share what I’m working on, and in future posts, I’ll talk about how GitHub Projects helps me plan the development of Passepartout without losing my mind.</p>
+
+<p>Here I present a sneak peek of what 2025 has been so far, and what I envision for the remainder of the year.</p>
+
+<h2 id="short-term">Short-term</h2>
+
+<h3 id="stability-again">Stability, again</h3>
+
+<p>Reaching stability after <a href="/2025/03/rewriting-passepartout-for-v3/">rewriting Passepartout v3</a> has been <em>extremely</em> challenging. Despite being a mid-to-small project, it’s insanely hard to keep track of all the tiny details and edge cases covered in such a long development history. Regressions (i.e. features that used to work but are broken by an update) are just inevitable.</p>
+
+<p>I wonder how many people have realized that <a href="https://github.com/passepartoutvpn/passepartout/releases">Passepartout has seen 14 updates</a> in less than two months. The criticism, the problems with in-app purchases, and the unforgiving reviews that most customers don’t care to update when a problem is fixed. The funniest part was those blaming me for being a “money grabber” at a time when the cost/benefit ratio of working on Passepartout was at a historical minimum. I worked up to 100/week while seeing sales going down 60%.</p>
+
+<p>But I’m still alive!</p>
+
+<h3 id="providers-api">Providers API</h3>
+
+<p>The JSON API of Passepartout has been a drag for too long. The time has come to rework it because it’s also a privacy concern for providers, API calls should be authenticated. The outcome will be a better overall integration and support for WireGuard in providers. Mullvad is likely to be the first one because of the <a href="https://www.reddit.com/r/mullvadvpn/comments/1gmf2id/removing_openvpn_15th_january_2026_blog_mullvad/">more stringent deadline</a>.</p>
+
+<h3 id="standalone-mac-release">Standalone Mac release</h3>
+
+<p>This is the one I’m mostly excited about: releasing Passepartout as a .dmg for macOS, outside of the App Store. The app will be limited to free features until I implement a way to receive payments without the App Store.</p>
+
+<h2 id="mid-term">Mid-term</h2>
+
+<h3 id="more-providers">More providers</h3>
+
+<p>A direct consequence of a better-designed API is making room for more providers.</p>
+
+<h3 id="more-protocols">More protocols</h3>
+
+<p>I’d rather disclose this later, but I’d like to extend the suite of supported VPN protocols. Maybe more than just VPN.</p>
+
+<h2 id="long-term">Long-term</h2>
+
+<h3 id="new-platforms">New platforms</h3>
+
+<p>A long-term goal that will not make it to 2025, but that’s been on the back of my head, is opening up to non-Apple platforms. There’s nothing concrete yet, but I’ve been designing the new codebase with this in mind.</p>
+
+<h2 id="the-app-is-already-better-than-v2">The app is already better than v2</h2>
+
+<p>Lastly, I want to spend some words on the new app.</p>
+
+<p>We usually take things that work for granted and complain about things that don’t. It’s human nature. Over the years, I learned that a silent customer is a happy customer and that a noisy one may be right, but not that often.</p>
+
+<p>Even when the update was receiving the biggest hate, I knew that the app would be better, but I could not blame the users “for not seeing it”. An app like Passepartout is best when you don’t notice that it’s running.</p>
+
+<p>I know that the app is better from an engineering perspective. Let me tell you, instead, 1% of why v3 is better <em>as an user</em>:</p>
+
+<ul>
+  <li>Better battery consumption</li>
+  <li>Super-low crash rate</li>
+  <li>Native Mac app</li>
+  <li>Mac menu consistent with the app</li>
+  <li>Per-profile iCloud sync</li>
+  <li>TV app is beautiful and sync is reliable</li>
+  <li>Shortcuts run in the background</li>
+  <li>Stable UI with consistent L&amp;F and animations</li>
+  <li>Much better provider server selection</li>
+  <li>Custom light/dark appearance</li>
+  <li>Interactive login</li>
+  <li>Route custom DNS inside/outside VPN</li>
+  <li>Edit WireGuard configurations</li>
+  <li>Convenient OTP field for OpenVPN (WIP)</li>
+  <li>Plenty of resolved OpenVPN bugs
+    <ul>
+      <li>Connection stuck randomly</li>
+      <li>Occasionally stuck when Wi-Fi/Mobile roaming</li>
+      <li>Regularly stuck when back from sleep</li>
+      <li>Disconnection on “Message too long”</li>
+      <li>Disconnection on “No buffer space available”</li>
+      <li>Disconnection during renegotiations</li>
+      <li>Slow to reconnect</li>
+      <li>Memory leaks</li>
+      <li>…</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Thanks to those who are trusting the process.</p>]]></content><author><name>Davide De Rosa</name></author><category term="planning" /><category term="announcements" /><summary type="html"><![CDATA[Recently, I made my current backlog public. I like to share what I’m working on, and in future posts, I’ll talk about how GitHub Projects helps me plan the development of Passepartout without losing my mind.]]></summary></entry><entry><title type="html">Rewriting Passepartout for v3</title><link href="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/" rel="alternate" type="text/html" title="Rewriting Passepartout for v3" /><published>2025-03-11T00:00:00+01:00</published><updated>2025-03-11T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/"><![CDATA[<p>For software to live a long life, it must grow together with our experience. If our skills improve at a faster pace than we maintain our software, its design will start to drift away from our standards and expectations. If we let the gap increase for too long, it will eventually be impossible to catch up, and we’ll end up hating our creations.</p>
 
 <h2 id="version-2-was-a-mess">Version 2 was a mess</h2>
 
