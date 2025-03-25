@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Blog">
+    
+<head>
+    <title>Passepartout is your go-to app for VPN and privacy.</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="author" content="Davide De Rosa" />
+    <meta name="description" content="Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-title" content="Passepartout">
+
+    <!-- OpenGraph -->
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Passepartout" />
+    <meta property="og:title" content="Who cares about performance?" />
+    <meta property="og:description" content="Who cares about performance?" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1742906463" />
+    <meta property="og:url" content="https://passepartoutvpn.app/2025/03/who-cares-about-performance/" />
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@keeshux" />
+    <meta name="twitter:title" content="Who cares about performance?" />
+    <meta name="twitter:description" content="Who cares about performance?" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1742906463" />
+    <meta name="twitter:url" content="https://passepartoutvpn.app/2025/03/who-cares-about-performance/" />
+
+    <link rel="canonical" href="https://passepartoutvpn.app/2025/03/who-cares-about-performance/" />
+    <link rel="author" href="https://davidederosa.com" />
+
+    <link rel="stylesheet" href="/s/main.css?1742906463" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1742906463" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="/s/favicon.ico?1742906463" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1742906463" />
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-011WMEB3FJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', 'G-011WMEB3FJ');
+</script>
+
+
+</head>
+
+    <body>
+        <div id="container">
+            <header>
+    <a href="https://passepartoutvpn.app"><img id="logo" src="/s/logo.svg" alt="Passepartout" /></a>
+    <h1><a href="https://passepartoutvpn.app">Passepartout</a></h1>
+    <p>Your go-to app for VPN and privacy.</p>
+</header>
+
+            <article class="post post-full" itemscope itemtype="https://schema.org/Article">
+    <header>
+        <div>
+            <h2 itemprop="name">Who cares about performance?</h2>
+            <p class="post-date" itemprop="datepublished">Mar 25, 2025</p>
+            <p class="post-tags">
+                Tags:
+                
+                <a href="/blog/development">development</a>
+                
+                <a href="/blog/swift">swift</a>
+                
+            </p>
+        </div>
+        <div class="post-body">
+            
+            <em>Originally posted on <a href="https://davidederosa.com/2025/03/who-cares-about-performance/">davidederosa.com</a></em>
+            
+            <p>While many people copypaste their unoriginal thoughts about AI and the so-called “vibe coding”, it seems that what used to make software valuable is constantly put aside. If you try to argue that tech <em>does</em> matter in a tech-oriented product, they will tell you that:</p>
+
+<ul>
+  <li>Business is more important than engineering</li>
+  <li>Software is useless if it doesn’t make money</li>
+  <li>Users only care about features</li>
+  <li>Devices are powerful, performance doesn’t matter</li>
+  <li>Internet is fast, a few more GBs won’t hurt</li>
+</ul>
+
+<p>And many more dumb takes. This is the typical mentality by which consultancy firms produce the most mediocre products you will ever find.</p>
+
+<p>I don’t want to delve into this endless – and hopeless – topic. Instead, I want to tell you a little story of how easy it is to lose control of software <em>performance</em>, and how the understanding of programming fundamentals keeps us in touch with reality. This has never been more important with the fast-paced opportunities that LLMs offer today.</p>
+
+<h3 id="can-you-afford-low-performance">Can you afford low performance?</h3>
+
+<p>I’m far from being a low-level programmer, yet I know C and the fundamentals of how things happen below the code.</p>
+
+<p><a href="https://passepartoutvpn.app">Passepartout</a> is a networking app mostly dealing with VPN connections. At least in the tunnel context, performance <em>does</em> matter. When it comes to OpenVPN in particular, it’s very hard to compete with a pure C codebase – the official library – when you also have to account for the overhead of the Swift runtime. Let’s not forget about the <a href="https://developer.apple.com/forums/thread/73148">strict memory limits</a> of Network Extension either. The time I spent on profiling to improve efficiency, resolve memory leaks, and reduce the crash rate, among other things, is pretty massive.</p>
+
+<p>Two months ago, a user reported a regression in the OpenVPN negotiation where the handshake would never complete. I could implement a fix quickly, yet the handshake took 4x longer than with the obsolete TunnelKit. A whopping and unacceptable 20-25s vs 5s negotiation!</p>
+
+<h3 id="the-domino-effect-of-bad-choices">The domino effect of bad choices</h3>
+
+<p>I inspected the negotiation steps carefully for bottlenecks:</p>
+
+<ul>
+  <li>Loops</li>
+  <li>Blocking code</li>
+  <li>Slow I/O</li>
+  <li>Disputed locks</li>
+  <li>Wrong artificial delays</li>
+  <li>Parsing</li>
+  <li>…and whatnot!</li>
+</ul>
+
+<p>Now, if your life as a programmer only revolved around high-level languages like JavaScript, Python, or even Swift, you will have a hard time realizing the <em>time cost</em> – not the <em>O(n)</em> cost – of your code. Similar to how knowing <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> helps immensely when profiling a slow <a href="https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping">ORM</a>, knowing C helps you spot poor performance in high-level programs, even if you never get to write C code.</p>
+
+<p>It took me 1-2 days to realize that the culprit was ironically where I expected it the least. The performance hit was caused by <a href="https://github.com/passepartoutvpn/passepartout/pull/1095">the parser of the PUSH_REPLY</a> message, which is a short comma-separated string. To be fair, the parser is quite basic, so it wasn’t the parser either: the problem was about <strong>re-creating the <code class="language-plaintext highlighter-rouge">NSRegularExpression</code> objects every time a new PUSH_REPLY was parsed</strong>.</p>
+
+<p>Of course, it doesn’t take a lot to create an <code class="language-plaintext highlighter-rouge">NSRegularExpression</code> but the user’s server sent dozens of PUSH_REPLY messages to the client, so the slow code was adding up very quickly. Run a 100ms vs 500ms code once and it will be okay, but run it 20 times and you easily get a 2 seconds vs 10 seconds delay. In the vast majority of servers, the PUSH_REPLY is a single message, which made the nasty issue unnoticeable to most.</p>
+
+<p>By then, I realized how too much OOP makes us programmers forget that even creating objects may be expensive. Imagine what AI can do without a supervisor. When performance is crucial, we should remind ourselves that the convenient, good-looking solution might be the <em>worse</em> choice.</p>
+
+<h3 id="what-vibe-coders-may-not-be-ready-for">What “vibe coders” may not be ready for</h3>
+
+<p>Before anything, ask yourself what <em>your business</em> is about. If you work at Netflix, or in the game industry, you might observe the immediate effect of an inefficient vibe-coded algorithm. In the trivial CRUD apps that make up 99.9% of the consultancy workforce, instead, you may only realize that your code has low performance after a long chain of bad choices, if ever.</p>
+
+<p>Performance, however, is just an example of what’s being overseen due to the increasingly fast pace at which people produce code.</p>
+
+<p>This leads to a few observations:</p>
+
+<ul>
+  <li>If your software is “stupid”, low performance may only be hidden and therefore not seem a big deal.</li>
+  <li>Engineers who underestimate the importance of performant solutions, probably never worked on challenging projects.</li>
+  <li>If performance doesn’t matter to <em>you</em> today, it doesn’t mean it’s not important in general. Or, that it won’t be important when <em>your</em> business scales up.</li>
+</ul>
+
+<p>When that day comes, will you have the knowledge you need to face it?</p>
+
+        </div>
+        <div>
+            <p><a href="https://linkedin.com/in/davidederosa">Follow me on LinkedIn</a></p>
+            <p><a href="/blog">Back to index</a></p>
+        </div>
+    </header>
+</article>
+
+
+
+
+
+<h3>Related posts</h3>
+<ul id="blog-posts" class="related">
+    
+    <li>
+        <span class="post-preview"><a href="/2025/03/rewriting-passepartout-for-v3/">Rewriting Passepartout for v3</a></span>
+        <span class="post-date">Mar 11, 2025</span>
+    </li>
+    
+    <li>
+        <span class="post-preview"><a href="/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/">Deploying to the App Store: The cost you didn't expect</a></span>
+        <span class="post-date">Mar 03, 2025</span>
+    </li>
+    
+    <li>
+        <span class="post-preview"><a href="/2025/03/the-path-to-an-obscure-crash/">The path to an obscure crash</a></span>
+        <span class="post-date">Mar 02, 2025</span>
+    </li>
+    
+</ul>
+
+
+            <footer>
+    <ul class="contacts">
+        <li><a href="https://github.com/passepartoutvpn" title="The project on GitHub" class="fab fa-github"></a></li>
+        <li><a href="https://buymeacoffee.com/passepartout" title="Support with a donation" class="fas fa-coins"></a></li>
+        <li><a href="https://linkedin.com/in/davidederosa" title="Follow the author on LinkedIn" class="fab fa-linkedin"></a></li>
+        <li><a href="https://x.com/keeshux" title="Follow the author on X" class="fab fa-x-twitter"></a></li>
+        <li><a href="mailto:info@passepartoutvpn.app" title="Submit an inquiry" class="fa fa-envelope"></a></li>
+        <li><a href="https://passepartoutvpn.app/feed.xml" title="Subscribe to the blog" class="fa-solid fa-rss"></a></li>
+    </ul>
+    <ul class="secondary">
+        <li><a href="/faq/" title="Frequently Asked Questions">FAQ</a></li>
+        <li>|</li>
+        <li><a href="/blog/" title="Articles about Passepartout">Blog</a></li>
+        <li>|</li>
+        <li><a href="/providers/" title="Providers">Providers</a></li>
+        <li>|</li>
+        <li><a href="/about/" title="The team and story behind Passepartout">About</a></li>
+    </ul>
+    <p class="notice">
+        The logo is taken from the awesome <a href="https://www.iconfinder.com/iconsets/circle-icons-1" title="Circle Icons">Circle Icons</a> set by <a href="https://www.elegantthemes.com/" title="Elegant Themes">Nick Roach</a>.<br />
+        Make sure to read the <a href="/privacy/" title="Privacy policy">privacy policy</a>.<br />
+        <br />
+        Copyright (c) 2025 <a href="https://davidederosa.com" title="The author website">Davide De Rosa</a>
+    </p>
+</footer>
+
+        </div>
+    </body>
+</html>
