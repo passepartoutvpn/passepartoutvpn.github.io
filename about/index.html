@@ -21,7 +21,7 @@
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:title" content="Passepartout is your go-to app for VPN and privacy." />
     <meta property="og:description" content="Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1743767732" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1744023085" />
     <meta property="og:url" content="https://passepartoutvpn.app/about/" />
 
     <!-- Twitter -->
@@ -30,18 +30,18 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout is your go-to app for VPN and privacy." />
     <meta name="twitter:description" content="Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub." />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1743767732" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1744023085" />
     <meta name="twitter:url" content="https://passepartoutvpn.app/about/" />
 
     <link rel="canonical" href="https://passepartoutvpn.app/about/" />
     <link rel="author" href="https://davidederosa.com" />
 
-    <link rel="stylesheet" href="/s/main.css?1743767732" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1743767732" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1744023085" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1744023085" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1743767732" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1743767732" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1744023085" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1744023085" />
 
     
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-011WMEB3FJ"></script>
@@ -71,7 +71,7 @@ gtag('config', 'G-011WMEB3FJ');
 <ul>
   <li><a href="#the-team">The Team</a></li>
   <li><a href="#how-passepartout-was-born">How Passepartout was born</a></li>
-  <li><a href="#passepartoutkit-the-new-tunnelkit">PassepartoutKit: The “new” TunnelKit</a></li>
+  <li><a href="#partout-the-new-tunnelkit">Partout: The “new” TunnelKit</a></li>
   <li><a href="#the-story-behind-tunnelkit">The story behind TunnelKit</a></li>
 </ul>
 
@@ -105,13 +105,13 @@ gtag('config', 'G-011WMEB3FJ');
 
 <p><a href="/s/about/01.png"><img src="/s/about/01.png" alt="The old Mac app" style="width: 100%" /></a></p>
 
-<h3 id="passepartoutkit-the-new-tunnelkit">PassepartoutKit: The “new” TunnelKit</h3>
+<h3 id="partout-the-new-tunnelkit">Partout: The “new” TunnelKit</h3>
 
 <p>Unfortunately, TunnelKit was not designed for the original concept of Passepartout, so <a href="https://www.reddit.com/r/passepartout/comments/1bw4esv/the_looks_of_tunnelkit_20172024/">the app ended up lagging behind its limitations</a>. Beyond that, the library architecture was in general very primitive, tightly coupled to OpenVPN and OpenSSL, and hard to test.</p>
 
-<p>That’s why I dedicated a relevant part of 2023/2024 to a completely new library, <a href="https://github.com/passepartoutvpn/passepartoutkit">PassepartoutKit</a>, a huge rewrite that was, however, worth the pain. It’s a well-thought architecture that leverages the experience I gained with TunnelKit and WireGuardKit for OpenVPN and WireGuard connectivity.</p>
+<p>That’s why I dedicated a relevant part of 2023/2024 to a completely new library, <a href="https://github.com/passepartoutvpn/partout">Partout</a>, a huge rewrite that was, however, worth the pain. It’s a well-thought architecture that leverages the experience I gained with TunnelKit and WireGuardKit for OpenVPN and WireGuard connectivity.</p>
 
-<p><em>PassepartoutKit</em> is a game changer in that:</p>
+<p><em>Partout</em> is a game changer in that:</p>
 
 <ul>
   <li>It is much easier to deploy and use</li>
@@ -123,15 +123,15 @@ gtag('config', 'G-011WMEB3FJ');
   <li>Last but not least, it is widely mockable/testable</li>
 </ul>
 
-<p>Contrary to TunnelKit, which is available under the GPL, <em>PassepartoutKit</em> is currently closed-source.</p>
+<p>Contrary to TunnelKit, which is available under the GPL, <em>Partout</em> is currently closed-source.</p>
 
 <p>Feel free to <a href="mailto:info@passepartoutvpn.app">contact me</a> for licensing or further information.</p>
 
-<p><a href="/s/about/02.png"><img src="/s/about/02.png" alt="A glance at PassepartoutKit documentation" style="width: 100%" /></a></p>
+<p><a href="/s/about/02.png"><img src="/s/about/02.png" alt="A glance at Partout documentation" style="width: 100%" /></a></p>
 
 <h3 id="the-story-behind-tunnelkit">The story behind TunnelKit</h3>
 
-<p><a href="https://github.com/passepartoutvpn/tunnelkit">TunnelKit</a> is a custom Swift/ObjC implementation of the OpenVPN protocol, written from scratch and now superseded by <em>PassepartoutKit</em>.</p>
+<p><a href="https://github.com/passepartoutvpn/tunnelkit">TunnelKit</a> is a custom Swift/ObjC implementation of the OpenVPN protocol, written from scratch and now superseded by <em>Partout</em>.</p>
 
 <p>It all started in 2017, when a former colleague at <a href="https://www.privateinternetaccess.com/">Private Internet Access</a> sent me some Ruby snippets that would connect to an OpenVPN server. He would then ask me: “would you port this to the iPhone?”</p>
 
