@@ -21,7 +21,7 @@
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:title" content="Porting Passepartout on Windows: Part 1" />
     <meta property="og:description" content="Porting Passepartout on Windows: Part 1" />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1744625601" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1744625830" />
     <meta property="og:url" content="https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows-part-1/" />
 
     <!-- Twitter -->
@@ -30,18 +30,18 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Porting Passepartout on Windows: Part 1" />
     <meta name="twitter:description" content="Porting Passepartout on Windows: Part 1" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1744625601" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1744625830" />
     <meta name="twitter:url" content="https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows-part-1/" />
 
     <link rel="canonical" href="https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows-part-1/" />
     <link rel="author" href="https://davidederosa.com" />
 
-    <link rel="stylesheet" href="/s/main.css?1744625601" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1744625601" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1744625830" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1744625830" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1744625601" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1744625601" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1744625830" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1744625830" />
 
     
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-011WMEB3FJ"></script>
@@ -93,9 +93,6 @@ gtag('config', 'G-011WMEB3FJ');
 
 <p>Bear with me, this is a <em>very experimental</em> work in progress, that’s why I’d rather start with architectural concepts, and delve into technical details only after confirming that my approaches do well in practice.</p>
 
-<p><em>Downloading Swift with WinGet</em>
-<img src="/s/posts/2025-04-13-01.png" alt="Downloading Swift with WinGet" /></p>
-
 <h2 id="1-start-with-a-lean-core">1. Start with a lean core</h2>
 
 <p>When I made Partout from the ashes of <a href="">TunnelKit</a>, I put special care into making the library core as lean as possible. No dependencies, no OS implementations, pure Swift. This mantra paid off very well in the long run because you realize how basic the Swift runtime is when you leave the comfortable macOS environment: a stripped version of the Foundation and Dispatch frameworks, not even Combine, and little more. I promise, this will hit you hard the first time.</p>
@@ -121,9 +118,6 @@ gtag('config', 'G-011WMEB3FJ');
 <p>Currently, I’m exploring a solution to reuse my ObjC code as is with <a href="https://www.mingw-w64.org/">MinGW64</a> and <a href="https://www.gnustep.org/">GNUstep</a>, as you can see in the screenshot below (forgive my swearing after hours of frustrating attempts…). So far, so good, though I’m still concerned with how MSYS2/MinGW64 handles the binary architectures.</p>
 
 <p><strong>Challenge #2: Prefer C over ObjC, if you can.</strong></p>
-
-<p><em>Compiling ObjC with MinGW + GNUstep</em>
-<img src="/s/posts/2025-04-13-02.png" alt="Compiling ObjC with MinGW + GNUstep" /></p>
 
 <h2 id="3-implementations">3. Implementations</h2>
 
