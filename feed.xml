@@ -1,58 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-04-20T01:54:20+02:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Porting Passepartout to Windows</title><link href="https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows/" rel="alternate" type="text/html" title="Porting Passepartout to Windows" /><published>2025-04-14T00:00:00+02:00</published><updated>2025-04-14T00:00:00+02:00</updated><id>https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows</id><content type="html" xml:base="https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows/"><![CDATA[<p>As <a href="">Partout</a>, my Swift framework for VPN and network configuration on Apple devices, has slowly gained shape, I set foot in an ambitious and novel, pioneering goal: <strong>making Partout a truly multiplatform Swift library</strong>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-04-20T02:11:21+02:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Porting Passepartout to Windows</title><link href="https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows/" rel="alternate" type="text/html" title="Porting Passepartout to Windows" /><published>2025-04-14T00:00:00+02:00</published><updated>2025-04-14T00:00:00+02:00</updated><id>https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows</id><content type="html" xml:base="https://passepartoutvpn.app/2025/04/porting-passepartout-to-windows/"><![CDATA[<p>As <a href="">Partout</a>, my Swift framework for VPN and network configuration on Apple devices, has slowly gained shape, I set foot in an ambitious and novel, pioneering goal: <strong>making Partout a truly multiplatform Swift library</strong>.</p>
 
 <p>It’s challenging, but it’s fun, and it’s the way to port <a href="https://passepartoutvpn.app">Passepartout</a> beyond the Apple platforms. So, here, I will progressively share my discoveries and encourage other people to give Swift a chance as a portable language. The language itself is fantastic. Using it outside Xcode? Not as much, but I’ve observed the trends over the years, and overall, things are getting better.</p>
 
-<p>This <a href="https://developer.apple.com/videos/play/wwdc2024/10197/">video from WWDC 2024</a> where the speaker uses Neovim + CMake made me reflect on the increasing efforts that Apple is making to push Swift into the outer world. Endorsing Neovim to develop Swift is an incredible marketing move to expand on Linux primarily, but I don’t mind it because both Neovim and Swift are amazing products. However, little talk on the street about Windows, so here are my two cents.</p>
-
-<p>Bear with me, this is a <em>very experimental</em> work in progress, that’s why I’d rather start with architectural concepts, and delve into technical details only after confirming that my approaches do well in practice.</p>
-
-<h2 id="1-start-with-a-lean-core">1. Start with a lean core</h2>
-
-<p>When I made Partout from the ashes of <a href="">TunnelKit</a>, I put special care into making the library core as lean as possible. No dependencies, no OS implementations, pure Swift. This mantra paid off very well in the long run because you realize how basic the Swift runtime is when you leave the comfortable macOS environment: a stripped version of the Foundation and Dispatch frameworks, not even Combine, and little more. I promise, this will hit you hard the first time.</p>
-
-<p>I was equally shocked, yet positively, when <code class="language-plaintext highlighter-rouge">async</code> methods worked out of the box. This is not about Swift, though, rather about Windows. The level of discomfort I feel when I use Windows puts me in a constant disbelief when things, eventually, work as intended. As in “this is Windows, nothing can work without Visual Studio”. Fun fact: Swift requires the Visual Studio Build Tools.</p>
-
-<p><strong>Challenge #1: Only depend on Foundation.</strong></p>
-
-<h2 id="2-objc-no-thanks">2. ObjC? No, thanks</h2>
-
-<p>Another painful wake-up call: the Swift toolchain does not support ObjC targets in SwiftPM on Windows. There are three scenarios:</p>
-
-<ol>
-  <li>If you depend on 3rd party Swift packages based on ObjC code, move on to something else. Most of the time there will be better options.</li>
-  <li>If you need to write low-level code with Swift, prefer some well-crafted C routines. You’ll thank yourself later.</li>
-  <li>If you (like me) have legacy ObjC code –a good amount of my OpenVPN implementation is written in ObjC for performance reasons, hear me out: it’s going to cause you trouble.</li>
-</ol>
-
-<p>As far as I can tell, there are no easy shortcuts to resolve point 3. Keep in mind that the first challenge still applies: pray that your ObjC codebase only depends on Foundation or libraries that <em>you</em> bundle –thus excluding Apple frameworks, or you’re basically screwed.</p>
-
-<p>Assuming that this is the case, you should treat ObjC like any other “foreign” language, which is with an external build tool. Once you build the ObjC code as a static library (e.g. with a <code class="language-plaintext highlighter-rouge">Makefile</code>), you have the option to add it as a binary target to the SwiftPM manifest. The same way you would do with Rust or Go, to name some. Unfortunately, this degrades the otherwise neat automation of SwiftPM.</p>
-
-<p>Currently, I’m exploring a solution to reuse my ObjC code as is with <a href="https://www.mingw-w64.org/">MinGW64</a> and <a href="https://www.gnustep.org/">GNUstep</a>, as you can see in the screenshot below (forgive my swearing after hours of frustrating attempts…). So far, so good, though I’m still concerned with how MSYS2/MinGW64 handles the binary architectures.</p>
-
-<p><strong>Challenge #2: Prefer C over ObjC, if you can.</strong></p>
-
-<h2 id="3-implementations">3. Implementations</h2>
-
-<p>I still want to use the keychain and Network Extension on Apple systems. A lean core will inevitably lead to taking Swift targets depending on them out of the core and be imported conditionally. These are the “leaves” of the library, the ones where we have the most freedom, even on the programming language.</p>
-
-<p>When it comes to Partout, this is of the utmost importance because it involves how the VPN functionality is implemented on each operating system. While this is clear to me on Apple (Network Extension), for Windows, I’m looking into the <a href="https://github.com/microsoft/UwpVpnPluginSample">Universal Windows Platform (UWP)</a>. As proof of the freedom we have in this area, the VPN code for Partout on Windows will likely be C#.</p>
-
-<p><strong>Challenge #3: Isolate implementation targets.</strong></p>
-
-<h2 id="4-c-is-the-common-denominator">4. C is the common denominator</h2>
-
-<p>Sad to say, but it doesn’t really matter how cool your Swift library is (replace with any other language). The well-thought classes, the scalable design, the smart patterns, the tricky use of OOP: forget about any of those by the time you expose the library to a different programming language. Nobody cares, really, because interoperability is done in C.</p>
-
-<p>Have you wondered how to expose a Swift protocol with an associatedtype to a Python library, an object with a lifetime, or even just a String? Well, the answer is straightforward: you don’t do that. Instead, you expose C wrappers from Swift with <a href="https://forums.swift.org/t/formalizing-cdecl/40677">@_cdecl</a>, which despite the leading underscore seems to be widely accepted as a pseudostable feature. It goes without saying, you will be limited to the standard C types.</p>
-
-<p>This will be a late stage of the refactoring, today I’m not worried. A solid approach to challenge #1 would definitely make this easier.</p>
-
-<p><strong>Challenge #4: Make your public interface a C API.</strong></p>
-
-<h2 id="bottom-line">Bottom line</h2>
-
-<p>I’m still in the early stages of bringing Swift to Windows with Partout, but the path is starting to reveal itself. Keep your core lean and pure Swift, avoid Objective-C where you can, isolate OS-specific implementations, and remember that C is the common ground across platforms. It’s experimental, sometimes frustrating, but genuinely fun—and worth sharing as it unfolds. Expect more on this throughout 2025.</p>]]></content><author><name>Davide De Rosa</name></author><category term="development" /><category term="swift" /><category term="windows" /><summary type="html"><![CDATA[As Partout, my Swift framework for VPN and network configuration on Apple devices, has slowly gained shape, I set foot in an ambitious and novel, pioneering goal: making Partout a truly multiplatform Swift library.]]></summary></entry><entry><title type="html">Who cares about performance?</title><link href="https://passepartoutvpn.app/2025/03/who-cares-about-performance/" rel="alternate" type="text/html" title="Who cares about performance?" /><published>2025-03-25T00:00:00+01:00</published><updated>2025-03-25T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/who-cares-about-performance</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/who-cares-about-performance/"><![CDATA[<p>While many people copy and paste unoriginal thoughts about AI and the so-called “vibe coding”, it seems that what used to make software valuable is constantly put aside. If you try to argue that tech <em>does</em> matter in a tech-oriented product, they will tell you that:</p>
+<p>Bear with me, this is a <em>very experimental</em> work in progress, that’s why I’d rather start with architectural concepts, and delve into technical details only after confirming that my approaches do well in practice.</p>]]></content><author><name>Davide De Rosa</name></author><category term="development" /><category term="swift" /><category term="windows" /><summary type="html"><![CDATA[As Partout, my Swift framework for VPN and network configuration on Apple devices, has slowly gained shape, I set foot in an ambitious and novel, pioneering goal: making Partout a truly multiplatform Swift library.]]></summary></entry><entry><title type="html">Who cares about performance?</title><link href="https://passepartoutvpn.app/2025/03/who-cares-about-performance/" rel="alternate" type="text/html" title="Who cares about performance?" /><published>2025-03-25T00:00:00+01:00</published><updated>2025-03-25T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/who-cares-about-performance</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/who-cares-about-performance/"><![CDATA[<p>While many people copy and paste unoriginal thoughts about AI and the so-called “vibe coding”, it seems that what used to make software valuable is constantly put aside. If you try to argue that tech <em>does</em> matter in a tech-oriented product, they will tell you that:</p>
 
 <ul>
   <li>Business is more important than engineering</li>
