@@ -21,7 +21,7 @@
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:title" content="Deploying to the App Store: The cost you didn't expect" />
     <meta property="og:description" content="Deploying to the App Store: The cost you didn't expect" />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1745107881" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1745109392" />
     <meta property="og:url" content="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" />
 
     <!-- Twitter -->
@@ -30,18 +30,18 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Deploying to the App Store: The cost you didn't expect" />
     <meta name="twitter:description" content="Deploying to the App Store: The cost you didn't expect" />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1745107881" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1745109392" />
     <meta name="twitter:url" content="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" />
 
     <link rel="canonical" href="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" />
     <link rel="author" href="https://davidederosa.com" />
 
-    <link rel="stylesheet" href="/s/main.css?1745107881" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1745107881" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1745109392" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1745109392" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1745107881" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1745107881" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1745109392" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1745109392" />
 
     
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-011WMEB3FJ"></script>
@@ -87,59 +87,6 @@ gtag('config', 'G-011WMEB3FJ');
 <p><a href="https://docs.fastlane.tools/">fastlane</a>, created by <a href="https://krausefx.com/">Felix Krause</a>, and <a href="https://github.com/features/actions">GitHub Actions</a> helped me immensely with the fast turnaround of Passepartout releases. In the era of LLMs, you have no excuses to waste time for not using these incredible tools.</p>
 
 <p>Let me show why CI/CD is one of the most important and underestimated aspects of making indie software, or software in general.</p>
-
-<h3 id="its-just-an-app-right">It’s just an app, right?</h3>
-
-<p>Many people are confident that <em>The Idea</em> is the most valuable aspect of a product.</p>
-
-<p>Unfortunately, if you developed an app for the App Store, at any level of complexity, you know how exhausting the whole process is. There is so much more than “writing the code”, which is nothing trivial to start with.</p>
-
-<h3 id="the-app-store-requirements-will-beat-you">The App Store requirements will beat you</h3>
-
-<p>Choosing the icons. Crafting the screenshots. Writing the metadata. Picking the categories. Localizations. The business model. In-app purchases. Sorting out the legal aspects. The App Review process. And so on.</p>
-
-<p>Wait, have I mentioned the codesigning process? Development, Ad-Hoc, Distribution. Multiple platforms. Debug and Release.</p>
-
-<p>Especially at the beginning, it’s overwhelming and discouraging. We’ve all been there.</p>
-
-<p>The 15-30% cut that Apple takes from your revenue is almost a marginal cost compared to all this.</p>
-
-<h3 id="the-fear-of-change">The fear of change</h3>
-
-<p>Here’s a very subtle side-effect of the above: once your tedious setup finally works, you might <em>refrain from changing</em>.</p>
-
-<p>Some relatable examples:</p>
-
-<ul>
-  <li>If I change the UI, I will have to change the screenshots for X languages and Y platforms.</li>
-  <li>If I alter some inner logic, I will get a rejection from Apple.</li>
-  <li>If I introduce a regression, I will get bad reviews.</li>
-  <li>Even if I have a hotfix in time, Apple will push my release back for silly reasons.</li>
-</ul>
-
-<p>It goes without saying, this is an atrocious outcome for your product. If you work alone with no one to delegate these annoyances to, you risk falling into the ultimate recipe for failure.</p>
-
-<p><em>Stagnation is the hidden cost of expensive deployment.</em></p>
-
-<h3 id="you-must-learn-to-automate">You MUST learn to automate</h3>
-
-<p>The key to keeping focus on the product is <em>automation</em>. It’s boring at first, but in the long run, it’s your best bet against the inevitable frustration of using App Store Connect.</p>
-
-<ul>
-  <li>If you find yourself doing 3+ times the same task, automate it.</li>
-  <li>If a task doesn’t need constant interaction, automate it.</li>
-  <li>If a task is sensitive to human mistakes, automate it.</li>
-</ul>
-
-<p>Observe your routine and you will soon realize how many hours you are wasting on dumb tasks, time you could have spent on useful features for your customers.</p>
-
-<h3 id="continuous-integration-is-underused">Continuous integration is underused!</h3>
-
-<p>After 15 years working with Apple devices, I can still confirm this trend: the vast majority of iOS developers don’t know jack about <em>continuous integration</em>. Which is crazy because fastlane has been around since 2014. GitHub Actions has a shorter history, but there have always been alternatives: Travis-CI, GitLab, Circle-CI, and whatnot.</p>
-
-<p>In the next posts, I’ll show you how I used fastlane and GitHub Actions to automate the release of Passepartout for iOS, macOS, and tvOS at once.</p>
-
-<p>Stay in touch.</p>
 
             
             <em>Keep reading on <a href="https://davidederosa.com/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/">davidederosa.com</a> and <a href="https://linkedin.com/in/davidederosa">LinkedIn</a></em>
