@@ -19,21 +19,21 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Passepartout" />
-    <meta property="og:title" content="Deploying to the App Store: The cost you didn't expect" />
-    <meta property="og:description" content="Deploying to the App Store: The cost you didn't expect" />
+    <meta property="og:title" content="Introducing the JavaScript API" />
+    <meta property="og:description" content="Introducing the JavaScript API" />
     <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1745518156" />
-    <meta property="og:url" content="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" />
+    <meta property="og:url" content="https://passepartoutvpn.app/2025/04/introducing-the-javascript-api/" />
 
     <!-- Twitter -->
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@keeshux" />
-    <meta name="twitter:title" content="Deploying to the App Store: The cost you didn't expect" />
-    <meta name="twitter:description" content="Deploying to the App Store: The cost you didn't expect" />
+    <meta name="twitter:title" content="Introducing the JavaScript API" />
+    <meta name="twitter:description" content="Introducing the JavaScript API" />
     <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1745518156" />
-    <meta name="twitter:url" content="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" />
+    <meta name="twitter:url" content="https://passepartoutvpn.app/2025/04/introducing-the-javascript-api/" />
 
-    <link rel="canonical" href="https://passepartoutvpn.app/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/" />
+    <link rel="canonical" href="https://passepartoutvpn.app/2025/04/introducing-the-javascript-api/" />
     <link rel="author" href="https://davidederosa.com" />
 
     <link rel="stylesheet" href="/s/main.css?1745518156" />
@@ -68,28 +68,29 @@ gtag('config', 'G-011WMEB3FJ');
             <article class="post post-full" itemscope itemtype="https://schema.org/Article">
     <header>
         <div>
-            <h2 itemprop="name">Deploying to the App Store: The cost you didn't expect</h2>
-            <p class="post-date" itemprop="datepublished">Mar 3, 2025</p>
+            <h2 itemprop="name">Introducing the JavaScript API</h2>
+            <p class="post-date" itemprop="datepublished">Apr 24, 2025</p>
             <p class="post-tags">
                 Tags:
                 
                 <a href="/blog/development">development</a>
                 
-                <a href="/blog/ci/cd">ci/cd</a>
+                <a href="/blog/javascript">javascript</a>
                 
             </p>
         </div>
         <div class="post-body">
-            <p>Passepartout has had a <a href="https://github.com/passepartoutvpn/passepartout/actions/runs/13551048532">solid and unique CI/CD workflow</a> for years, from Git commits straight to the App Store. For iPhone, iPad, Mac, and Apple TV.</p>
+            <p>While I invest a lot in making the software architecture as modular as I can, I haven’t spent as much time in documenting <em>how</em> to start contributing to the codebase. I know myself how intimidating it is to submit a PR to someone else’s repository, so it’s crucial that we, the maintainers, provide a viable entry point to those willing to collaborate. A welcoming, non-judging community also reduces the friction of the first public contribution.</p>
 
-<p>I dare to say, automated releases are hardly (if <em>ever</em>) seen in open-source *OS apps.</p>
+<p>One part that I’ve always found potentially accessible was the Providers API, which is how Passepartout auto-compiles VPN configurations for a plethora of provider servers. Nevertheless, no one ever contributed a single provider, and no wonder: providers were generated in CI with a convoluted set of undocumented Ruby scripts. Who on Earth would want to touch that mess?</p>
 
-<p><a href="https://docs.fastlane.tools/">fastlane</a>, created by <a href="https://krausefx.com/">Felix Krause</a>, and <a href="https://github.com/features/actions">GitHub Actions</a> helped me immensely with the fast turnaround of Passepartout releases. In the era of LLMs, you have no excuses to waste time for not using these incredible tools.</p>
+<p>When I found out about <a href="https://developer.apple.com/documentation/javascriptcore">JavaScriptCore</a> to solve a different problem, I suddenly realized how scripting could be a lower barrier to enter the Passepartout codebase, as there are way more JavaScript than Swift developers out there.</p>
 
-<p>Let me show why CI/CD is one of the most important and underestimated aspects of making indie software, or software in general.</p>
+<p>With the help of AI, I rapidly converted the old Ruby legacy to a brand new <a href="https://github.com/passepartoutvpn/api-source">Node.js implementation</a> that most developers would find easy to understand, develop, and test without even installing the app. Then I started documenting <a href="https://github.com/passepartoutvpn/api-source?tab=readme-ov-file#new-providers">how to submit a provider</a> step by step. This doesn’t imply that people will start adding new providers today, but offering accessible tools and documentation is a <em>strict</em> requirement for that to happen.</p>
+
 
             
-            <em>Keep reading on <a href="https://davidederosa.com/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/">davidederosa.com</a> and <a href="https://linkedin.com/in/davidederosa">LinkedIn</a></em>
+            <em>Keep reading on <a href="https://davidederosa.com/2025/04/scripting-and-open-source-adoption/">davidederosa.com</a> and <a href="https://linkedin.com/in/davidederosa">LinkedIn</a></em>
             
         </div>
         <div>
@@ -110,11 +111,6 @@ gtag('config', 'G-011WMEB3FJ');
 <ul id="blog-posts" class="related">
     
     <li>
-        <span class="post-preview"><a href="/2025/04/introducing-the-javascript-api/">Introducing the JavaScript API</a></span>
-        <span class="post-date">Apr 24, 2025</span>
-    </li>
-    
-    <li>
         <span class="post-preview"><a href="/2025/04/porting-passepartout-to-windows/">Porting Passepartout to Windows</a></span>
         <span class="post-date">Apr 14, 2025</span>
     </li>
@@ -127,6 +123,11 @@ gtag('config', 'G-011WMEB3FJ');
     <li>
         <span class="post-preview"><a href="/2025/03/rewriting-passepartout-for-v3/">Rewriting Passepartout for v3</a></span>
         <span class="post-date">Mar 11, 2025</span>
+    </li>
+    
+    <li>
+        <span class="post-preview"><a href="/2025/03/deploying-to-the-app-store-the-cost-you-didn-t-expect/">Deploying to the App Store: The cost you didn't expect</a></span>
+        <span class="post-date">Mar 03, 2025</span>
     </li>
     
     <li>
