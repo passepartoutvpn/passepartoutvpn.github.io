@@ -21,7 +21,7 @@
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:title" content="Passepartout is your go-to app for VPN and privacy." />
     <meta property="og:description" content="Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1748423056" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1748884232" />
     <meta property="og:url" content="https://passepartoutvpn.app/" />
 
     <!-- Twitter -->
@@ -30,18 +30,18 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout is your go-to app for VPN and privacy." />
     <meta name="twitter:description" content="Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub." />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1748423056" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1748884232" />
     <meta name="twitter:url" content="https://passepartoutvpn.app/" />
 
     <link rel="canonical" href="https://passepartoutvpn.app/" />
     <link rel="author" href="https://davidederosa.com" />
 
-    <link rel="stylesheet" href="/s/main.css?1748423056" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1748423056" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1748884232" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1748884232" media="only screen and (max-width: 600px)" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1748423056" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1748423056" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1748884232" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1748884232" />
 
     
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-011WMEB3FJ"></script>
@@ -82,12 +82,41 @@ gtag('config', 'G-011WMEB3FJ');
         <li>No background activities</li>
         <li>Wise on battery</li>
     </ul>
+</aside>
+<main>
+    <h2>Download</h2>
+    <h3>App Store</h3>
     <p id="app-store">
         <a href="https://apps.apple.com/us/app/passepartout-vpn-client/id1433648537?mt=8"><img class="app-store-badge" src="/s/ios-app-store.svg" alt="Get Passepartout for iOS" /></a>
         <a href="https://apps.apple.com/us/app/passepartout-vpn-client/id1433648537?mt=8"><img class="app-store-badge" src="/s/mac-app-store.svg" alt="Get Passepartout for Mac" /></a>
     </p>
-</aside>
-<main>
+    <h3>Standalone for Mac</h3>
+    <p id="app-mac">Passepartout is available for Mac outside the App Store, though currently limited to free features only:</p>
+    <ul>
+        <li>
+            <!-- href, text, category, label -->
+
+<a href="https://github.com/passepartoutvpn/passepartout/releases/latest/download/Passepartout.arm64.dmg" onclick="gtag('event', 'click', { event_category: 'download', event_label: 'mac/dmg-apple' });">
+    Passepartout for Mac (Apple Silicon)
+</a>
+
+
+            (<a href="https://github.com/passepartoutvpn/passepartout/releases/latest/download/Passepartout.arm64.dmg.asc">GPG</a>)
+        </li>
+        <li>
+            <!-- href, text, category, label -->
+
+<a href="https://github.com/passepartoutvpn/passepartout/releases/latest/download/Passepartout.x86_64.dmg" onclick="gtag('event', 'click', { event_category: 'download', event_label: 'mac/dmg-intel' });">
+    Passepartout for Mac (Intel)
+</a>
+
+
+            (<a href="https://github.com/passepartoutvpn/passepartout/releases/latest/download/Passepartout.x86_64.dmg.asc">GPG</a>)
+        </li>
+    </ul>
+    <p>It's recommended that you verify the GPG signatures with <a href="https://raw.githubusercontent.com/passepartoutvpn/passepartout/refs/heads/master/ci/gpg.txt">my public key</a>.</p>
+    <h3>TestFlight</h3>
+    <p>Get early (restricted) versions of the app via <a href="https://testflight.apple.com/join/K71mtLjZ" title="Passepartout on TestFlight">TestFlight</a>. Check out the <a href="/disclaimer/" title="Disclaimer">disclaimer</a> before using beta software.</p>
     <h2>Community</h2>
     <p>Before anything, have a look at the <a href="/faq/">Frequently Asked Questions</a>.</p>
     <p>Create a <a href="https://github.com/orgs/passepartoutvpn/discussions">GitHub discussion</a> to report issues, share suggestions, or engage in conversations about the app.</p>
@@ -97,8 +126,6 @@ gtag('config', 'G-011WMEB3FJ');
     <h3>Development</h3>
     <p>The current plans are shared on <a href="https://github.com/orgs/passepartoutvpn/projects" title="The roadmap on GitHub Projects">GitHub Projects</a> from time to time.</p>
     <p><a href="https://github.com/passepartoutvpn" title="Source code for Passepartout">Source code</a> is also available on GitHub, mostly under the <a href="https://choosealicense.com/licenses/gpl-3.0/" title="GPLv3">GPLv3</a>.</p>
-    <h3>Beta</h3>
-    <p>Get early (restricted) versions of the app via <a href="https://testflight.apple.com/join/K71mtLjZ" title="Passepartout on TestFlight">TestFlight</a>. Check out the <a href="/disclaimer/" title="Disclaimer">disclaimer</a> before using beta software.</p>
     <h2>Providers</h2>
     <p>Here is a list of the <a href="/providers">supported providers</a>, feel free to <a href="https://github.com/passepartoutvpn/api-source/blob/master/CONTRIBUTING.md">submit yours</a>.</p>
     <h2>Donate</h2>
