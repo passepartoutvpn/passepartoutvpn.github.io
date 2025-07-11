@@ -19,21 +19,21 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Passepartout" />
-    <meta property="og:title" content="Introducing the JavaScript API" />
-    <meta property="og:description" content="Introducing the JavaScript API" />
+    <meta property="og:title" content="Modern cross-platform encryption" />
+    <meta property="og:description" content="Modern cross-platform encryption" />
     <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1752241406" />
-    <meta property="og:url" content="https://passepartoutvpn.app/2025/04/introducing-the-javascript-api/" />
+    <meta property="og:url" content="https://passepartoutvpn.app/2025/07/modern-cross-platform-encryption/" />
 
     <!-- Twitter -->
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@keeshux" />
-    <meta name="twitter:title" content="Introducing the JavaScript API" />
-    <meta name="twitter:description" content="Introducing the JavaScript API" />
+    <meta name="twitter:title" content="Modern cross-platform encryption" />
+    <meta name="twitter:description" content="Modern cross-platform encryption" />
     <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1752241406" />
-    <meta name="twitter:url" content="https://passepartoutvpn.app/2025/04/introducing-the-javascript-api/" />
+    <meta name="twitter:url" content="https://passepartoutvpn.app/2025/07/modern-cross-platform-encryption/" />
 
-    <link rel="canonical" href="https://passepartoutvpn.app/2025/04/introducing-the-javascript-api/" />
+    <link rel="canonical" href="https://passepartoutvpn.app/2025/07/modern-cross-platform-encryption/" />
     <link rel="author" href="https://davidederosa.com" />
 
     <link rel="stylesheet" href="/s/main.css?1752241406" />
@@ -68,31 +68,40 @@ gtag('config', 'G-011WMEB3FJ');
             <article class="post post-full" itemscope itemtype="https://schema.org/Article">
     <header>
         <div>
-            <h2 itemprop="name">Introducing the JavaScript API</h2>
-            <p class="post-date" itemprop="datepublished">Apr 24, 2025</p>
+            <h2 itemprop="name">Modern cross-platform encryption</h2>
+            <p class="post-date" itemprop="datepublished">Jul 11, 2025</p>
             <p class="post-tags">
                 Tags:
                 
                 <a href="/blog/announcements">announcements</a>
                 
-                <a href="/blog/development">development</a>
+                <a href="/blog/app-store">app-store</a>
                 
-                <a href="/blog/javascript">javascript</a>
+                <a href="/blog/cross-platform">cross-platform</a>
+                
+                <a href="/blog/openvpn">openvpn</a>
+                
+                <a href="/blog/swift">swift</a>
                 
             </p>
         </div>
         <div class="post-body">
-            <p>While I invest a lot in making the software architecture as modular as I can, I haven’t spent as much time in documenting <em>how</em> to start contributing to the codebase. I know myself how intimidating it is to submit a PR to someone else’s repository, so it’s crucial that we, the maintainers, provide a viable entry point to those willing to collaborate. A welcoming, non-judging community also reduces the friction of the first public contribution.</p>
+            <p>As mentioned <a href="/2025/04/porting-passepartout-to-windows/">in an earlier post</a>, I’ve invested a good part of the recent months in porting Passepartout on non-Apple platforms. Version 3.5.4 quietly brings to life the first milestone of this initiative, which is opting into <em>modern cryptography</em>.</p>
 
-<p>One part that I’ve always found potentially accessible was the Providers API, which is how Passepartout auto-compiles VPN configurations for a plethora of provider servers. Nevertheless, no one ever contributed a single provider, and no wonder: providers were generated in CI with a convoluted set of undocumented Ruby scripts. Who on Earth would want to touch that mess?</p>
+<p><img src="/s/posts/2025-07-13-01.png" alt="Snapshot of the new preference" /></p>
 
-<p>When I found out about <a href="https://developer.apple.com/documentation/javascriptcore">JavaScriptCore</a> to solve a different problem, I suddenly realized how scripting could be a lower barrier to enter the Passepartout codebase, as there are way more JavaScript than Swift developers out there.</p>
+<p>By enabling the “Modern cryptography” preference, Passepartout will prefer the new cross-platform implementations over the historical Apple-only code. This is an experimental feature today, which means that connectivity might still be unstable, but the payoff is a dramatic boost in networking performance, more features, and prompt bugfixes.</p>
 
-<p>With the help of AI, I rapidly converted the old Ruby legacy to a brand new <a href="https://github.com/passepartoutvpn/api-source">Node.js implementation</a> that most developers would find easy to understand, develop, and test without even installing the app. Then I started documenting <a href="https://github.com/passepartoutvpn/api-source?tab=readme-ov-file#new-providers">how to submit a provider</a> step by step. This doesn’t imply that people will start adding new providers today, but offering accessible tools and documentation is a <em>strict</em> requirement for that to happen.</p>
+<h2 id="a-way-to-support-cross-platform-development">A way to support cross-platform development</h2>
 
+<p>Testing modern cryptography today is a great way to support the project, as Passepartout will default to modern cryptography on non-Apple platforms. Switching to it and providing feedback will contribute to a robust Windows/Linux/Android MVP in the future.</p>
+
+<p>The feature is available to everybody, free and paying customers.</p>
+
+<p>You can read articles on my website about how I’m making Passepartout and its backend, <a href="https://github.com/passepartoutvpn/partout">Partout</a>, a cross-platform application.</p>
 
             
-            <em>Keep reading on <a href="https://davidederosa.com/2025/04/scripting-and-open-source-adoption/">davidederosa.com</a> and <a href="https://linkedin.com/in/davidederosa">LinkedIn</a></em>
+            <em>Keep reading on <a href="https://davidederosa.com/cross-platform-swift/c-interop-part-one/">davidederosa.com</a> and <a href="https://linkedin.com/in/davidederosa">LinkedIn</a></em>
             
         </div>
         <div>
@@ -113,13 +122,13 @@ gtag('config', 'G-011WMEB3FJ');
 <ul id="blog-posts" class="related">
     
     <li>
-        <span class="post-preview"><a href="/2025/07/modern-cross-platform-encryption/">Modern cross-platform encryption</a></span>
-        <span class="post-date">Jul 11, 2025</span>
+        <span class="post-preview"><a href="/2025/06/the-mac-app-is-now-available-outside-the-app-store/">The Mac app is now available outside the App Store</a></span>
+        <span class="post-date">Jun 02, 2025</span>
     </li>
     
     <li>
-        <span class="post-preview"><a href="/2025/06/the-mac-app-is-now-available-outside-the-app-store/">The Mac app is now available outside the App Store</a></span>
-        <span class="post-date">Jun 02, 2025</span>
+        <span class="post-preview"><a href="/2025/04/introducing-the-javascript-api/">Introducing the JavaScript API</a></span>
+        <span class="post-date">Apr 24, 2025</span>
     </li>
     
     <li>
