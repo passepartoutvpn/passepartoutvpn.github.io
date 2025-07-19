@@ -1,9 +1,10 @@
 body {
     background-color: #515d71;
-    padding: 0em 1em;
     font-family: "Helvetica", sans-serif;
     font-size: 12pt;
     color: white;
+    margin: 0;
+    padding: 20px;
 }
 
 a {
@@ -41,10 +42,13 @@ aside ul {
 
 pre code {
     display: block;
+    padding: 0.6em;
     background-color: #eee;
     color: #333;
     font-size: 0.8em;
-    padding: 0.6em;
+}
+
+pre code {
     max-width: 100%;
     overflow-x: auto;
 }
@@ -134,4 +138,10 @@ footer ul {
 }
 
 .post-tags {
+}
+
+.post-body p {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
