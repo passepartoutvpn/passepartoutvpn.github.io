@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-07-30T16:14:40+02:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Discontinuining support for the ProtonVPN provider</title><link href="https://passepartoutvpn.app/2025/07/discontinuing-support-for-the-protonvpn-provider/" rel="alternate" type="text/html" title="Discontinuining support for the ProtonVPN provider" /><published>2025-07-18T00:00:00+02:00</published><updated>2025-07-18T00:00:00+02:00</updated><id>https://passepartoutvpn.app/2025/07/discontinuing-support-for-the-protonvpn-provider</id><content type="html" xml:base="https://passepartoutvpn.app/2025/07/discontinuing-support-for-the-protonvpn-provider/"><![CDATA[<p>Recently, I realized that the public ProtonVPN API <a href="https://www.reddit.com/r/ProtonVPN/comments/1kr3yu9/byebye_api_power_users_have_been_shut_out_by/">was made private</a>, which in turn left the infrastructure in Passepartout outdated for a while. In my opinion, these are reasonable moves by public providers that don’t want their customers to use third party apps, because it would require additional customer support. While I believe that offering API plans for integrating alternative clients or resellers would be a nice addition, it’s absolutely fine if they don’t want to.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://passepartoutvpn.app/feed.xml" rel="self" type="application/atom+xml" /><link href="https://passepartoutvpn.app/" rel="alternate" type="text/html" /><updated>2025-09-09T00:28:17+02:00</updated><id>https://passepartoutvpn.app/feed.xml</id><title type="html">Passepartout is your go-to app for VPN and privacy.</title><subtitle>Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub.</subtitle><author><name>Davide De Rosa</name></author><entry><title type="html">Update: Q3 2025</title><link href="https://passepartoutvpn.app/2025/09/update-q3-2025/" rel="alternate" type="text/html" title="Update: Q3 2025" /><published>2025-09-08T00:00:00+02:00</published><updated>2025-09-08T00:00:00+02:00</updated><id>https://passepartoutvpn.app/2025/09/update-q3-2025</id><content type="html" xml:base="https://passepartoutvpn.app/2025/09/update-q3-2025/"><![CDATA[<p>This post starts a trend of quarterly updates about Passepartout. Being close to the end of Q3, this is mostly an overview of what I’ve done in the recent months, with an outlook on what I’m doing next.</p>
+
+<h2 id="rebranding-to-partout">Rebranding to <em>Partout</em></h2>
+
+<p>Passepartout will not change its name, but it will be part of a broader project named after its backbone: <em>Partout</em>. Partout is the <a href="https://github.com/passepartoutvpn/partout">Swift library</a>, now also cross-platform, of which Passepartout aims to be an elegant showcase. Easier to pronounce, shorter to type, the library I’m building is the very heart of Passepartout, and aims to provide a comprehensive, portable framework to create tunneling software. This website will soon reflect this new direction, I hope you’ll like it.</p>
+
+<h2 id="cross-platform-is-real">Cross-platform is REAL!</h2>
+
+<p>This is the grand goal of 2025, and the intense work of Q3 has taken me incredibly close to the finish line. I drafted the simplest PoC to test VPN connectivity, and I’m thrilled to say that it worked on all the new platforms I intend to support. I managed to connect with Partout to both OpenVPN and WireGuard servers on Linux, Windows, and even Android! It will take patient polish for a public MVP, but I’m positive that something will see the light by the end of the year.</p>
+
+<p>Considering that in January I had little hope that Swift could ever be so ubiquitous, this accomplishment feels kind of <em>legendary</em> to me. I’m proud, and despite the difficulties, the whole experience of native multiplatform has been fun and deeply satisfying.</p>
+
+<p>If you want to learn more, I’ve been writing about this long journey in <a href="https://davidederosa.com/cross-platform-swift/">“Cross-platform Swift”</a>, a blog series that I’ve been publishing on my personal website. I promise, if you are a Swift developer willing to port your apps and libraries on non-Apple platforms, you will find my discoveries very helpful.</p>
+
+<h2 id="new-features-wisely">New features, wisely</h2>
+
+<p>As stability is paramount in Passepartout, I’ve taken a more conservative approach to new features. All the disruptive additions are now rolled out dynamically, in a way that I can instantly revert a faulty update without involving the tedious App Review in the process. The cross-platform initiative is taking 100% of my focus, so new features are still on hold.</p>
+
+<p>What’s been done:</p>
+
+<ul>
+  <li><strong>New paywall</strong>: Recently activated to make the purchase flow a bit less confusing.</li>
+  <li><strong>TV web import</strong>: Today, I restored the web QR feature on the Apple TV, which finally allows uploading profiles without an iOS or macOS device. Incidentally, without even iCloud. The feature will be under observation for 2 weeks before deeming it stable. If so, a convenient <strong>Send to TV</strong> button will be added to the native apps as well.</li>
+</ul>
+
+<p>What’s coming next:</p>
+
+<ul>
+  <li><strong>WireGuard in providers</strong>: Starting with Mullvad. This is mostly done, but I’m trying not to rush it. Let’s give it a couple of weeks still.</li>
+  <li><strong>Interoperability</strong>: Importing and exporting profiles and modules, plus a universal format for Passepartout/Partout profiles. Sharing profiles with other people. These elements will give the project a stronger and unique identity.</li>
+</ul>]]></content><author><name>Davide De Rosa</name></author><category term="announcements" /><category term="cross-platform" /><category term="2025" /><summary type="html"><![CDATA[This post starts a trend of quarterly updates about Passepartout. Being close to the end of Q3, this is mostly an overview of what I’ve done in the recent months, with an outlook on what I’m doing next.]]></summary></entry><entry><title type="html">Discontinuining support for the ProtonVPN provider</title><link href="https://passepartoutvpn.app/2025/07/discontinuing-support-for-the-protonvpn-provider/" rel="alternate" type="text/html" title="Discontinuining support for the ProtonVPN provider" /><published>2025-07-18T00:00:00+02:00</published><updated>2025-07-18T00:00:00+02:00</updated><id>https://passepartoutvpn.app/2025/07/discontinuing-support-for-the-protonvpn-provider</id><content type="html" xml:base="https://passepartoutvpn.app/2025/07/discontinuing-support-for-the-protonvpn-provider/"><![CDATA[<p>Recently, I realized that the public ProtonVPN API <a href="https://www.reddit.com/r/ProtonVPN/comments/1kr3yu9/byebye_api_power_users_have_been_shut_out_by/">was made private</a>, which in turn left the infrastructure in Passepartout outdated for a while. In my opinion, these are reasonable moves by public providers that don’t want their customers to use third party apps, because it would require additional customer support. While I believe that offering API plans for integrating alternative clients or resellers would be a nice addition, it’s absolutely fine if they don’t want to.</p>
 
 <p>Therefore, the ProtonVPN provider will be removed next week from the supported Passepartout providers.</p>
 
@@ -135,7 +165,7 @@
   </li>
 </ul>
 
-<p>Thanks to those who are trusting the process.</p>]]></content><author><name>Davide De Rosa</name></author><category term="announcements" /><category term="cross-platform" /><category term="planning" /><summary type="html"><![CDATA[Recently, I made my current backlog public. I like to share what I’m working on, and in future posts, I’ll talk about how GitHub Projects helps me plan the development of Passepartout without losing my mind.]]></summary></entry><entry><title type="html">Rewriting Passepartout for v3</title><link href="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/" rel="alternate" type="text/html" title="Rewriting Passepartout for v3" /><published>2025-03-11T00:00:00+01:00</published><updated>2025-03-11T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/"><![CDATA[<p>For software to live a long life, it must grow together with our experience. If our skills improve at a faster pace than we maintain our software, its design will start to drift away from our standards and expectations. If we let the gap increase for too long, it will eventually be impossible to catch up, and we’ll end up hating our creations.</p>
+<p>Thanks to those who are trusting the process.</p>]]></content><author><name>Davide De Rosa</name></author><category term="announcements" /><category term="cross-platform" /><category term="2025" /><summary type="html"><![CDATA[Recently, I made my current backlog public. I like to share what I’m working on, and in future posts, I’ll talk about how GitHub Projects helps me plan the development of Passepartout without losing my mind.]]></summary></entry><entry><title type="html">Rewriting Passepartout for v3</title><link href="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/" rel="alternate" type="text/html" title="Rewriting Passepartout for v3" /><published>2025-03-11T00:00:00+01:00</published><updated>2025-03-11T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/rewriting-passepartout-for-v3/"><![CDATA[<p>For software to live a long life, it must grow together with our experience. If our skills improve at a faster pace than we maintain our software, its design will start to drift away from our standards and expectations. If we let the gap increase for too long, it will eventually be impossible to catch up, and we’ll end up hating our creations.</p>
 
 <h2 id="version-2-was-a-mess">Version 2 was a mess</h2>
 
@@ -192,110 +222,4 @@
 
 <p><a href="https://docs.fastlane.tools/">fastlane</a>, created by <a href="https://krausefx.com/">Felix Krause</a>, and <a href="https://github.com/features/actions">GitHub Actions</a> helped me immensely with the fast turnaround of Passepartout releases. In the era of LLMs, you have no excuses to waste time for not using these incredible tools.</p>
 
-<p>Let me show why CI/CD is one of the most important and underestimated aspects of making indie software, or software in general.</p>]]></content><author><name>Davide De Rosa</name></author><category term="development" /><category term="ci/cd" /><summary type="html"><![CDATA[Passepartout has had a solid and unique CI/CD workflow for years, from Git commits straight to the App Store. For iPhone, iPad, Mac, and Apple TV.]]></summary></entry><entry><title type="html">The path to an obscure crash</title><link href="https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash/" rel="alternate" type="text/html" title="The path to an obscure crash" /><published>2025-03-02T00:00:00+01:00</published><updated>2025-03-02T00:00:00+01:00</updated><id>https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash</id><content type="html" xml:base="https://passepartoutvpn.app/2025/03/the-path-to-an-obscure-crash/"><![CDATA[<p>One month after its first, painful release, Passepartout v3 is close to being stable.</p>
-
-<p>However, a couple of regressions were still haunting me.</p>
-
-<p>Here I want to describe the absurd journey into one of them, that started with a report <a href="https://github.com/passepartoutvpn/passepartout/issues/1204">from GitHub</a>, and <a href="https://www.reddit.com/r/passepartout/comments/1j0lbqa/not_open_in_sonoma_any_idea/">one from Reddit</a>. Both users were reporting that the Mac app was crashing on launch.</p>
-
-<p>The reports led me to think that the regression was caused by the macOS version, or the CPU architecture, as both users were using an Intel-based machine.</p>
-
-<h3 id="the-xcode-organizer">The Xcode Organizer</h3>
-
-<p>I had several (unhelpful) crashes in the Xcode Organizer confirming the issue:</p>
-
-<div class="h-scrolling">
-    <img alt="Xcode Organizer" src="/s/posts/2025-03-03-01.png" />
-</div>
-
-<p>Looking further into some crashes, I could spot a few SIGILL (Illegal Hardware Instruction) that reinforced the idea of a platform-related issue. Add to that, one of the threads had intense Core Data + CloudKit activity ongoing. It must be Core Data, I thought, given that Passepartout performs its sync precisely when the app launches.</p>
-
-<p><em>Doubt #1: how can the app launch at all if the arch is unsupported?</em></p>
-
-<p><em>Doubt #2: is the Core Data stack trace relevant? Is it the thread that is actually crashing?</em></p>
-
-<h3 id="never-read-crash-reports-only-once">Never read crash reports only once</h3>
-
-<p>Passepartout is a privacy-oriented app. There is no external framework e.g. Firebase to help with crash resolution, so Xcode is the only technical resource at disposal. Plus the patient support from the affected users.</p>
-
-<p>Eventually, Core Data was a distraction. Every report was crashing on “Thread 0”, i.e. the main thread. There were also crashes from macOS 15 and ARM64. Fewer, but non-zero.</p>
-
-<p>This stack trace shed some light in that the injected AppDelegate could be the culprit. But where? And why?</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Thread 0 Crashed:
-0   Passepartout                    0x00000001029bb154 0x102764000 + 2453844
-1   Passepartout                    0x00000001029baf6c 0x102764000 + 2453356
-2   Passepartout                    0x00000001029bb83c 0x102764000 + 2455612
-3   Passepartout                    0x00000001029ba6ac 0x102764000 + 2451116
-4   Passepartout                    0x00000001029b66d4 0x102764000 + 2434772
-5   Passepartout                    0x000000010276d0d4 0x102764000 + 37076
-6   Passepartout                    0x000000010276c868 0x102764000 + 34920
-7   libdispatch.dylib               0x000000018ab68658 _dispatch_client_callout + 20 (object.m:576)
-8   libdispatch.dylib               0x000000018ab69ea0 _dispatch_once_callout + 32 (once.c:52)
-9   Passepartout                    0x000000010276b2ac 0x102764000 + 29356
-10  Passepartout                    0x000000010276b2f0 0x102764000 + 29424
-11  Passepartout                    0x000000010276b3c0 0x102764000 + 29632
-12  SwiftUI                         0x00000001b977a934 FallbackDelegateBox.delegate.getter + 68 (FallbackDelegateBox.swift:36)
-13  SwiftUI                         0x00000001b9e8cea8 specialized NSApplicationDelegateAdaptor.wrappedValue.getter + 156 (FallbackDelegates_Mac.swift:93)
-...
-</code></pre></div></div>
-
-<h3 id="reproducing-the-crash-pt-1">Reproducing the crash (pt. 1)</h3>
-
-<p>Assuming that the AppDelegate was doing something wrong, there was even a much bigger issue: I could not reproduce the crash on my machine. I realized, though, that a friend of mine had an Intel MacBook with macOS 14, so I asked for his help.</p>
-
-<p>He gave me access via AnyDesk to push ad hoc builds to the machine. The latest app version crashed consistently. Off to a good start. At that point, I spent a few hours trying to exclude potentially offending parts from the launch code, sadly to no avail. Consider that any change in the code implied archiving and sending a build via AnyDesk to test it. It was exhausting, and the afternoon led nowhere.</p>
-
-<h3 id="reproducing-the-crash-pt-2">Reproducing the crash (pt. 2)</h3>
-
-<p>I decide to give a shot to virtualization. Most crashes came from macOS 14, and not necessarily from Intel machines, so this could work. These were the steps:</p>
-
-<ul>
-  <li>Get <a href="https://mac.getutm.app/">UTM</a> to run a VM on Mac. <em>Highly recommended!</em></li>
-  <li>Download a restore image for Sonoma (~14GB)</li>
-  <li>Regenerate the provisioning profile with the VM UDID</li>
-  <li>Send the development build via a shared folder to the VM</li>
-</ul>
-
-<p>The app crashes. Hooray!</p>
-
-<h3 id="git-to-the-rescue">Git to the rescue</h3>
-
-<p>Time to locate where the regression was introduced. I rebuilt the app for each commit that sounded relevant, and after 10-20 builds, I found out that the crash was introduced in <a href="https://github.com/passepartoutvpn/passepartout/pull/1200">this pull request</a> about the light/dark mode picker in the app preferences. WTF?!</p>
-
-<p>It turns out, the widely used <a href="https://developer.apple.com/documentation/appkit/nsapp"><code class="language-plaintext highlighter-rouge">NSApp</code> singleton</a> is an <strong>implicitly unwrapped optional</strong>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@MainActor
-var NSApp: NSApplication!
-</code></pre></div></div>
-
-<p>and it was therefore used unsafely in this bit of the PR:</p>
-
-<script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fpassepartoutvpn%2Fpassepartout%2Fblob%2Fv3.1.1%2FPackages%2FApp%2FSources%2FUILibrary%2FBusiness%2FAppearanceManager.swift%23L66-73&amp;style=default&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on"></script>
-
-<h3 id="a-race-condition-about-nsapp">A race condition about NSApp</h3>
-
-<p>It’s finally revealed that, very early in a Mac app lifecycle, <code class="language-plaintext highlighter-rouge">NSApp</code> may be nil. This was more often the case on macOS 14 than 15, but still a hideous race condition.</p>
-
-<p>Here goes the simplified stack call:</p>
-
-<ul>
-  <li>main</li>
-  <li>AppDelegate.init</li>
-  <li>AppearanceManager.init</li>
-  <li>AppearanceManager.systemAppearance.didSet</li>
-  <li>AppearanceManager.apply()</li>
-  <li>NSApp.appearance = …</li>
-</ul>
-
-<p>In the last call, <code class="language-plaintext highlighter-rouge">NSApp</code> may be nil and implicitly unwrapped, leading to the crash.</p>
-
-<h3 id="lessons-learned">Lessons learned</h3>
-
-<p>This was one of those bugs that make you question everything—platform differences, architecture quirks, even Core Data conspiracies—before revealing a simple yet insidious root cause: a race condition with <code class="language-plaintext highlighter-rouge">NSApp</code>.</p>
-
-<p>The takeaway? Even well-documented singletons aren’t always safe to assume as non-nil. And when debugging obscure crashes, patience and a systematic approach (plus a good VM setup) can make all the difference.</p>
-
-<p>Passepartout v3.1.5 <a href="https://github.com/passepartoutvpn/passepartout/pull/1224">will handle this case properly</a>, ensuring that <code class="language-plaintext highlighter-rouge">NSApp</code> is accessed only when it’s actually available. Hopefully, that’s one less obscure crash lurking in the shadows.</p>
-
-<p>To Apple and Swift: isn’t it about time to discourage/deprecate the use of implicitly unwrapped optionals?</p>]]></content><author><name>Davide De Rosa</name></author><category term="development" /><category term="swift" /><summary type="html"><![CDATA[One month after its first, painful release, Passepartout v3 is close to being stable.]]></summary></entry></feed>
+<p>Let me show why CI/CD is one of the most important and underestimated aspects of making indie software, or software in general.</p>]]></content><author><name>Davide De Rosa</name></author><category term="development" /><category term="ci/cd" /><summary type="html"><![CDATA[Passepartout has had a solid and unique CI/CD workflow for years, from Git commits straight to the App Store. For iPhone, iPad, Mac, and Apple TV.]]></summary></entry></feed>
