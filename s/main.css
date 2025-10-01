@@ -1,8 +1,7 @@
 body {
     background-color: #515d71;
-    font-family: "Helvetica", sans-serif;
+    font-family: "Helvetica", system-ui, sans-serif;
     font-size: 14pt;
-    font-weight: lighter;
     color: white;
     margin: 0;
     padding: 20px;
