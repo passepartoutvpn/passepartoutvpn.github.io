@@ -21,7 +21,7 @@
     <meta property="og:site_name" content="Passepartout" />
     <meta property="og:title" content="Passepartout is your go-to app for VPN and privacy." />
     <meta property="og:description" content="Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub." />
-    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1760285568" />
+    <meta property="og:image" content="https://passepartoutvpn.app/s/logo.png?1761679126" />
     <meta property="og:url" content="https://passepartoutvpn.app/faq/" />
 
     <!-- Twitter -->
@@ -30,17 +30,17 @@
     <meta name="twitter:site" content="@keeshux" />
     <meta name="twitter:title" content="Passepartout is your go-to app for VPN and privacy." />
     <meta name="twitter:description" content="Passepartout is your go-to app for VPN and privacy. Tailored for Apple platforms, Passepartout is open-source and fully available on GitHub." />
-    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1760285568" />
+    <meta name="twitter:image" content="https://passepartoutvpn.app/s/logo.png?1761679126" />
     <meta name="twitter:url" content="https://passepartoutvpn.app/faq/" />
 
     <link rel="canonical" href="https://passepartoutvpn.app/faq/" />
     <link rel="author" href="https://davidederosa.com" />
 
-    <link rel="stylesheet" href="/s/main.css?1760285568" />
-    <link rel="stylesheet" href="/s/main-mobile.css?1760285568" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="/s/main.css?1761679126" />
+    <link rel="stylesheet" href="/s/main-mobile.css?1761679126" media="only screen and (max-width: 600px)" />
 
-    <link rel="shortcut icon" href="/s/favicon.ico?1760285568" />
-    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1760285568" />
+    <link rel="shortcut icon" href="/s/favicon.ico?1761679126" />
+    <link rel="apple-touch-icon" href="/s/iphone-icon-precomposed.png?1761679126" />
 
     
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-011WMEB3FJ"></script>
@@ -204,6 +204,7 @@ gtag('config', 'G-011WMEB3FJ');
 <h3 id="openvpn">OpenVPN</h3>
 
 <ul>
+  <li><a href="#compression-does-not-work">Compression does not work</a></li>
   <li><a href="#i-can-connect-to-the-vpn-but-the-internet-does-not-work">I can connect to the VPN but the Internet does not work</a></li>
   <li><a href="#the-vpn-fails-with-auth-failed-or-immediately-disconnects-with-encryption-failed">The VPN fails with “Auth failed” or immediately disconnects with “Encryption failed”</a></li>
   <li><a href="#my-provider-returns-auth-failed-but-my-credentials-are-correct">My provider returns “Auth failed” but my credentials are correct</a></li>
@@ -212,6 +213,10 @@ gtag('config', 'G-011WMEB3FJ');
   <li><a href="#the-configuration-file-contains-an-unsupported-option-external-file">The configuration file contains an unsupported option (external file)</a></li>
   <li><a href="#it-seems-that-my-traffic-doesnt-necessarily-go-through-the-vpn">It seems that my traffic doesn’t necessarily go through the VPN</a></li>
 </ul>
+
+<h4 id="compression-does-not-work">Compression does not work</h4>
+
+<p>Due to security concerns (specifically the VORACLE vulnerability), OpenVPN deprecated compression support years ago. Starting in December 2025, Passepartout will also remove support for LZO compression. If your OpenVPN connection stops working, please make sure that compression is disabled on your server. Most public VPN providers have already done this, so you are unlikely to be affected.</p>
 
 <h4 id="i-can-connect-to-the-vpn-but-the-internet-does-not-work">I can connect to the VPN but the Internet does not work</h4>
 
